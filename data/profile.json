@@ -1,109 +1,142 @@
 {
   "basics": {
     "name": "Alistair Grenyer",
-    "title": "Full Stack Software Engineer",
+    "title": "Software Engineer",
+    "location": "United Kingdom",
+    "email": "alistair.j.grenyer@hotmail.com",
+    "phone": "079 392 89088",
     "tagline": "Building elegant solutions to complex problems",
-    "email": "alistair@example.com",
-    "location": "London, United Kingdom",
-    "summary": "Experienced software engineer with a passion for creating scalable web applications and API solutions. Specializing in React, TypeScript, and modern backend technologies. Committed to writing clean, maintainable code and delivering exceptional user experiences.",
-    "personalNote": "When I'm not coding, you'll find me hiking in the Lake District or experimenting with new cooking recipes.",
-    "socialLinks": {
-      "linkedin": "https://linkedin.com/in/alistairgrenyer",
-      "github": "https://github.com/alistairgrenyer",
-      "twitter": "https://twitter.com/alistairgrenyer"
-    }
-  },
-  "skills": {
-    "frontend": [
-      "React", "TypeScript", "Next.js", "TailwindCSS", "JavaScript", "HTML5", "CSS3", "Redux", "Vue.js"
-    ],
-    "backend": [
-      "Node.js", "Express", "FastAPI", "Python", "Django", "GraphQL", "REST API Design"
-    ],
-    "databases": [
-      "PostgreSQL", "MongoDB", "Redis", "Elasticsearch"
-    ],
-    "devops": [
-      "Docker", "Kubernetes", "AWS", "CI/CD", "GitHub Actions", "Terraform"
-    ],
-    "tools": [
-      "Git", "Jest", "React Testing Library", "Cypress", "Webpack", "Vite", "Figma"
+    "summary": "I'm a passionate software engineer with experience developing web applications and backend systems. I specialize in Python and JavaScript technologies with a focus on React and Next.js. With strong experience in both frontend and backend development, I create robust and scalable solutions that deliver exceptional user experiences.",
+    "personalNote": "When I'm not coding, I enjoy exploring new technologies and contributing to open-source projects. I have a background in Aerospace Engineering and bring analytical problem-solving skills to software development.",
+    "socialLinks": [
+      {
+        "name": "GitHub",
+        "url": "https://github.com/alistairgrenyer",
+        "icon": "github"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/in/alistair-grenyer-3b22b523a",
+        "icon": "linkedin"
+      }
     ]
   },
+  "skills": [
+    {
+      "category": "Languages",
+      "items": [
+        "Python (3 years commercial)",
+        "C# (2 years commercial)",
+        "Java (1 year commercial)",
+        "JavaScript/TypeScript (1 year commercial)",
+        "MATLAB",
+        "Rust",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "category": "Frontend",
+      "items": [
+        "React (1 year commercial)",
+        "React Native (1 year commercial)",
+        "jQuery"
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        "FastAPI",
+        "AWS EC2",
+        "AWS Lambda",
+        "Docker"
+      ]
+    },
+    {
+      "category": "Database",
+      "items": [
+        "MySQL",
+        "MariaDB",
+        "PostgreSQL",
+        "Neo4j",
+        "MongoDB",
+        "Redis"
+      ]
+    },
+    {
+      "category": "DevOps & Tools",
+      "items": [
+        "Git",
+        "GitHub Actions",
+        "Bitbucket",
+        "SVN",
+        "Bamboo",
+        "JIRA",
+        "Coolify",
+        "Self-hosting",
+        "AGILE SCRUM",
+        "CI/CD"
+      ]
+    }
+  ],
   "experience": [
     {
-      "company": "Tech Innovations Ltd",
-      "position": "Senior Software Engineer",
-      "location": "London, UK",
-      "startDate": "2023-01",
+      "position": "Consultant SWE",
+      "company": "Capgemini Engineering",
+      "location": "United Kingdom",
+      "startDate": "2022-09",
       "endDate": "Present",
       "highlights": [
-        "Led development of microservices architecture serving 2M+ users",
-        "Implemented CI/CD pipelines reducing deployment time by 40%",
-        "Mentored junior developers and conducted code reviews"
+        "Worked on multiple small to large projects using a range of technologies",
+        "Used databases including MySQL, MariaDB, Neo4j, MongoDB",
+        "Developed with C#, Java and Python",
+        "Focused on TDD and OOP methodologies",
+        "Created extensive unit tests, emulation and simulation for testing embedded systems",
+        "Used project management tools including JIRA, Bitbucket, SVN and Bamboo"
       ]
     },
     {
-      "company": "Digital Solutions Inc",
-      "position": "Full Stack Developer",
-      "location": "London, UK",
-      "startDate": "2020-03",
-      "endDate": "2022-12",
+      "position": "Python SWE",
+      "company": "Temple Solar",
+      "location": "United Kingdom",
+      "startDate": "2023-11",
+      "endDate": "Present",
       "highlights": [
-        "Built RESTful APIs with Node.js and Express",
-        "Developed responsive frontend applications using React and TypeScript",
-        "Optimized database queries resulting in 30% faster load times"
-      ]
-    },
-    {
-      "company": "Startup Ventures",
-      "position": "Frontend Developer",
-      "location": "Manchester, UK",
-      "startDate": "2018-09",
-      "endDate": "2020-02",
-      "highlights": [
-        "Developed and maintained company website and client portals",
-        "Collaborated with UX designers to implement responsive designs",
-        "Integrated third-party APIs for payment processing and analytics"
+        "Developed React web apps and Python FastAPI RESTful APIs",
+        "Worked with cloud architecture including AWS EC2 and AWS Lambda, Heroku",
+        "Implemented self-hosting with Coolify and Docker for scalability",
+        "Set up Git CI/CD integration"
       ]
     }
   ],
   "education": [
     {
-      "institution": "University of Manchester",
-      "degree": "MSc Computer Science",
-      "fieldOfStudy": "Computer Science",
-      "startDate": "2016",
-      "endDate": "2018",
-      "highlights": ["Dissertation on ML applications in web development"]
+      "degree": "SWE Level 4 Apprenticeship",
+      "institution": "Corndel",
+      "location": "United Kingdom",
+      "startDate": "2022-09",
+      "endDate": "2024-03",
+      "highlights": [
+        "Successfully passed SWE Level 4"
+      ]
     },
     {
-      "institution": "University of Liverpool",
-      "degree": "BSc",
-      "fieldOfStudy": "Software Engineering",
-      "startDate": "2012",
-      "endDate": "2016",
-      "highlights": ["First Class Honours"]
+      "degree": "BEng Aerospace Engineering (2:1 Honors)",
+      "institution": "Swansea University",
+      "location": "Swansea, UK",
+      "startDate": "2018-09",
+      "endDate": "2021-06",
+      "highlights": [
+        "Achieved 2:1 Honors degree"
+      ]
     }
   ],
   "certifications": [
     {
-      "name": "AWS Certified Solutions Architect",
-      "issuer": "Amazon Web Services",
-      "date": "2022",
-      "url": "https://aws.amazon.com/certification/"
-    },
-    {
-      "name": "Professional Scrum Master I",
-      "issuer": "Scrum.org",
-      "date": "2021",
-      "url": "https://www.scrum.org/professional-scrum-certifications"
-    },
-    {
-      "name": "MongoDB Certified Developer",
-      "issuer": "MongoDB University",
-      "date": "2020",
-      "url": "https://university.mongodb.com/certification"
+      "name": "Software Engineering Level 4 Apprenticeship",
+      "issuer": "Corndel",
+      "date": "2024-03",
+      "url": ""
     }
   ]
 }

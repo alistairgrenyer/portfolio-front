@@ -32,7 +32,7 @@ export default function EducationSection() {
                   <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-sm">
                     <h4 className="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{edu.institution}</h4>
                     <p className="text-blue-600 dark:text-blue-400 mb-1">
-                      {edu.degree} in {edu.fieldOfStudy}
+                      {edu.degree} {edu.location && `- ${edu.location}`}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                       {edu.startDate} — {edu.endDate}
