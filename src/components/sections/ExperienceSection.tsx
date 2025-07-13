@@ -88,7 +88,7 @@ export default function ExperienceSection() {
             {/* Left panel: Map with pins */}
             <div className="lg:col-span-1">
               {/* <h3 className="text-xl font-semibold mb-4">My UK Work Locations</h3> */}
-              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 shadow-sm h-64 md:h-80">
+              <div className="bg-gray-50 dark:bg-gray-900 rounded-lg p-4 shadow-sm h-64 md:h-130">
                 <LocationMap 
                   locations={experienceLocations}
                   onPinClick={handlePinClick}

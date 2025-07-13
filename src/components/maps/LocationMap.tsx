@@ -225,7 +225,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                 <circle 
                   cx="0" 
                   cy="0" 
-                  r="12" 
+                  r="30" 
                   className="fill-transparent"
                 />
                 
@@ -234,7 +234,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                   <circle 
                     cx="0" 
                     cy="0" 
-                    r="14" 
+                    r="30" 
                     className="fill-blue-300 dark:fill-blue-700 opacity-50"
                   />
                 )}
@@ -244,7 +244,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                   <circle 
                     cx="0" 
                     cy="0" 
-                    r="8"
+                    r="24"
                     className="animate-ping fill-blue-400 dark:fill-blue-600 opacity-75"
                   />
                 )}
@@ -253,22 +253,24 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                 <circle 
                   cx="0" 
                   cy="0" 
-                  r="7" 
+                  r="20" 
                   className="fill-blue-600 stroke-white stroke-2"
                 />
                 
                 {/* City name label */}
                 <text
                   x="0"
-                  y="-15"
+                  y="-40"
                   textAnchor="middle"
-                  className="text-xs fill-gray-900 dark:fill-white font-semibold"
+                  fontSize="50"
+                  fontWeight="bold"
+                  className="fill-gray-900 dark:fill-white"
                   style={{ pointerEvents: 'none' }}
                 >
                   <tspan
                     dy="0"
                     x="0"
-                    className="stroke-white dark:stroke-gray-900 stroke-[0.5px] paint-order-stroke"
+                    className="stroke-white dark:stroke-gray-900 stroke-[2px] paint-order-stroke"
                   >
                     {cityName.charAt(0).toUpperCase() + cityName.slice(1)}
                   </tspan>
