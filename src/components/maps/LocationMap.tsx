@@ -32,11 +32,11 @@ interface GeoJSONFeature {
   type: string;
   properties: {
     location?: string;
-    [key: string]: any;
+    [key: string]: string | number | boolean | undefined;
   };
   geometry: {
     type: string; // Can be 'Point' or 'Polygon' or 'MultiPolygon'
-    coordinates: any[]; // For Point: [lng, lat], for Polygon: [[[lng, lat], ...]], for MultiPolygon: [[[[lng, lat], ...]]]
+    coordinates: number[] | number[][][] | number[][][][]; // For Point: [lng, lat], for Polygon: [[[lng, lat], ...]], for MultiPolygon: [[[[lng, lat], ...]]]
   };
   id: number;
 }
