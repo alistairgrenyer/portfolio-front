@@ -17,7 +17,7 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2> */}
+          <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
           <AboutSection />
         </div>
       </section>
@@ -25,7 +25,7 @@ export default function Home() {
       {/* Projects Section */}
       <section id="projects" className="py-16">
         <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2> */}
+          <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2>
           <ProjectsSection />
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function Home() {
       {/* Skills Section */}
       <section id="skills" className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2> */}
+          <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2>
           <SkillsSection />
         </div>
       </section>
@@ -41,7 +41,7 @@ export default function Home() {
       {/* Experience Section */}
       <section id="experience" className="py-16">
         <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">Experience</h2> */}
+          <h2 className="text-3xl font-bold mb-8 text-center">Experience</h2>
           <ExperienceSection />
         </div>
       </section>
