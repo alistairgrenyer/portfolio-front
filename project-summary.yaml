@@ -1,0 +1,139 @@
+---
+# Project Summary YAML for AI Reference
+project:
+  name: "Alistair's Portfolio Website"
+  description: "A modern, minimalist portfolio website built with Next.js and TypeScript"
+  repository: "portfolio-front"
+  version: "1.0.0"
+
+tech_stack:
+  framework: "Next.js 14 (App Router)"
+  language: "TypeScript"
+  styling: "Tailwind CSS"
+  state_management: "React Hooks"
+  data_storage: "JSON files"
+  deployment: "Vercel"
+
+architecture:
+  pattern: "Component-based architecture"
+  data_flow: "Typed hooks load data from JSON files"
+  components:
+    - type: "Layout"
+      components:
+        - "Header"
+        - "Footer"
+        - "NavigationBar"
+    - type: "Sections"
+      components:
+        - "HomeSection"
+        - "AboutSection"
+        - "SkillsSection"
+        - "ExperienceSection"
+        - "EducationSection"
+        - "ContactSection"
+    - type: "Map"
+      components:
+        - "LocationMap (custom SVG-based UK map)"
+    - type: "Chat"
+      components:
+        - "ChatLauncher"
+        - "ChatWindow"
+        - "MessageList"
+        - "MessageBubble"
+        - "QuickReplyChips"
+
+features:
+  - name: "Responsive Design"
+    status: "Complete"
+    description: "Adapts to all screen sizes using Tailwind CSS"
+  
+  - name: "Interactive UK Map"
+    status: "Complete"
+    description: "Custom SVG map with city pins for experience locations"
+    implementation: 
+      - "Using GeoJSON data for UK outline (uk.geo.low.city.geo.json)"
+      - "City pins positioned using the same coordinate system as the map"
+      - "Manual path generation for accurate positioning"
+  
+  - name: "AI Chatbot"
+    status: "Complete"
+    description: "Chat interface to help users navigate the site"
+    implementation:
+      - "Mock API responses for demonstration"
+      - "Quick reply chips for common actions"
+      - "Smooth animations and transitions"
+  
+  - name: "Dark/Light Mode"
+    status: "In Progress"
+    description: "Theme switching with Tailwind CSS class strategy"
+  
+  - name: "Accessibility"
+    status: "Complete"
+    description: "Semantic HTML and ARIA attributes for better accessibility"
+
+data_structure:
+  profile:
+    path: "/data/profile.json"
+    schema:
+      name: "string"
+      tagline: "string"
+      email: "string"
+      phone: "string"
+      location: "string"
+      bio: "string"
+      socialLinks: "SocialLink[]"
+      skills: "SkillCategory[]"
+      experience: "Experience[]"
+      education: "Education[]"
+  
+  projects:
+    path: "/data/projects.json"
+    schema:
+      projects: "Project[]"
+
+key_components:
+  - name: "LocationMap"
+    path: "/src/components/maps/LocationMap.tsx"
+    purpose: "Renders the UK map with interactive city pins"
+    implementation:
+      - "Parses GeoJSON data for UK outline and city points"
+      - "Calculates map bounds and scales coordinates"
+      - "Renders both map outline and pins with consistent transform"
+      - "Handles hover and click interactions for pins"
+  
+  - name: "ExperienceSection"
+    path: "/src/components/sections/ExperienceSection.tsx"
+    purpose: "Displays work experience with interactive map"
+    implementation:
+      - "Two-panel layout: map on left, experience timeline on right"
+      - "Clicking map pins highlights the related experience"
+      - "Responsive design for all screen sizes"
+  
+  - name: "ChatWindow"
+    path: "/src/components/chat/ChatWindow.tsx"
+    purpose: "Interactive AI assistant interface"
+    implementation:
+      - "Message threading and history"
+      - "User input handling"
+      - "Quick reply suggestion chips"
+
+design_principles:
+  - "Minimalist and clean aesthetic"
+  - "Responsive design with mobile-first approach"
+  - "Progressive enhancement for better accessibility"
+  - "Component-based architecture for modularity"
+  - "Type safety with TypeScript interfaces"
+
+current_status:
+  - "All core sections are implemented"
+  - "Data architecture is in place with typed hooks"
+  - "Interactive UK map is complete with experience pins"
+  - "Chat interface is implemented with mock API"
+  - "Dark/light mode toggle is in progress"
+  - "Project section needs more work"
+
+next_steps:
+  - "Complete dark/light mode toggle"
+  - "Enhance project section"
+  - "Add unit tests"
+  - "Update documentation"

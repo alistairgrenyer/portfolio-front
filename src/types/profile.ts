@@ -1,7 +1,7 @@
-export interface SocialLinks {
-  linkedin: string;
-  github: string;
-  twitter: string;
+export interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
 }
 
 export interface Basics {
@@ -9,10 +9,11 @@ export interface Basics {
   title: string;
   tagline: string;
   email: string;
+  phone: string;
   location: string;
   summary: string;
   personalNote: string;
-  socialLinks: SocialLinks;
+  socialLinks: SocialLink[];
 }
 
 export interface ExperienceItem {
@@ -27,7 +28,7 @@ export interface ExperienceItem {
 export interface EducationItem {
   institution: string;
   degree: string;
-  fieldOfStudy: string;
+  location: string;
   startDate: string;
   endDate: string;
   highlights: string[];
@@ -40,15 +41,14 @@ export interface Certification {
   url: string;
 }
 
+export interface SkillCategory {
+  category: string;
+  items: string[];
+}
+
 export interface ProfileData {
   basics: Basics;
-  skills: {
-    frontend: string[];
-    backend: string[];
-    databases: string[];
-    devops: string[];
-    tools: string[];
-  };
+  skills: SkillCategory[];
   experience: ExperienceItem[];
   education: EducationItem[];
   certifications: Certification[];

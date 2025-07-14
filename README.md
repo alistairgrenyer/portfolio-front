@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alistair's Portfolio Website
+
+A modern, minimalist, and responsive portfolio website built with Next.js and TypeScript. Features a clean design, interactive UK map with location pins, and an AI chatbot assistant.
+
+## Key Features
+
+- **Responsive Design**: Adapts to all screen sizes using Tailwind CSS
+- **Interactive UK Map**: Custom SVG-based map with location pins for work experience
+- **Dark/Light Mode**: Theme switching with Tailwind CSS
+- **AI Chatbot**: Interactive assistant to help visitors navigate the site
+- **Accessible UI**: Semantic HTML and ARIA attributes for better accessibility
+- **Type Safety**: Full TypeScript integration
+
+## Sections
+
+- **Home**: Introduction and quick navigation
+- **About**: Personal bio and background
+- **Skills**: Technical skills categorized by area
+- **Experience**: Work history with interactive UK map
+- **Education**: Academic background and certifications
+- **Projects**: Showcase of notable projects
+- **Contact**: Social links and contact information
+
+## Tech Stack
+
+- **Framework**: Next.js 14 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **State Management**: React hooks
+- **Data**: JSON/YAML data files with typed loaders
+- **Deployment**: Vercel
+
+## Project Structure
+
+```
+/src
+  /app             # Next.js App Router pages
+  /components      # Reusable UI components
+    /chat          # Chatbot components
+    /layout        # Layout components (Header, Footer)
+    /maps          # UK map implementation
+    /sections      # Main site sections
+  /hooks           # Custom React hooks
+  /styles          # Global styles
+  /types           # TypeScript type definitions
+  /utils           # Helper functions
+/data              # JSON/YAML data files
+/public            # Static assets
+```
+
+## Data Architecture
+
+Content is stored in JSON files under `/data` and loaded via typed hooks:
+
+- `profile.json`: Personal info, skills, experience, education
+- `projects.json`: Project details and metadata
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+
+```bash
+npm install
+```
+
+2. **Run development server**:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Open in browser**:
+   
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Key Components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **LocationMap**: Custom UK map with interactive pins for experience locations
+- **ChatWindow**: AI assistant interface with message threading and quick replies
+- **Section Components**: Modular sections for different parts of the portfolio
 
-## Learn More
+## Development Notes
 
-To learn more about Next.js, take a look at the following resources:
+- CSS uses utility-first approach with Tailwind
+- Dark mode toggle uses CSS class strategy
+- React Server Components used where possible for better performance
+- Client Components marked with 'use client' directive
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site is configured for deployment on Vercel:
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved.

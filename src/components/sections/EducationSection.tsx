@@ -8,7 +8,7 @@ export default function EducationSection() {
   return (
     <section id="education" className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Education & Certifications</h2>
+        {/* <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Education & Certifications</h2> */}
         
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Education */}
@@ -32,7 +32,7 @@ export default function EducationSection() {
                   <div key={index} className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 shadow-sm">
                     <h4 className="text-xl font-semibold mb-1 text-gray-900 dark:text-white">{edu.institution}</h4>
                     <p className="text-blue-600 dark:text-blue-400 mb-1">
-                      {edu.degree} in {edu.fieldOfStudy}
+                      {edu.degree} {edu.location && `- ${edu.location}`}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
                       {edu.startDate} — {edu.endDate}
