@@ -27,7 +27,7 @@ export default function MessageList({ messages, loading }: MessageListProps) {
       {messages.length === 0 && (
         <div className="flex justify-center items-center h-full">
           <p className="text-gray-500 dark:text-gray-400 text-center">
-            Welcome! Ask me anything about Alistair's work, projects, or skills.
+            Welcome! Ask me anything about Alistair&apos;s work, projects, or skills.
           </p>
         </div>
       )}

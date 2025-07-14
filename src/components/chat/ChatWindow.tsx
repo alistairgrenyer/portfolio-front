@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, MutableRefObject } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Message } from '@/types/chat';
 import MessageList from './MessageList';
 import ChatInput from './ChatInput';
@@ -115,7 +115,7 @@ export default function ChatWindow({
       {/* Header */}
       <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
         <h2 id="chat-title" className="text-lg font-semibold text-gray-900 dark:text-white">
-          Alistair's Assistant
+          Alistair&apos;s Assistant
         </h2>
         <button 
           ref={closeButtonRef}
