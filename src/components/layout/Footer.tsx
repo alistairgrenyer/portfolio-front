@@ -19,9 +19,9 @@ export default function Footer() {
           {/* Social links */}
           {!loading && profile?.basics.socialLinks && (
             <div className="flex space-x-4">
-              {profile.basics.socialLinks.linkedin && (
+              {profile.basics.socialLinks.find(link => link.name === 'LinkedIn') && (
                 <a 
-                  href={profile.basics.socialLinks.linkedin} 
+                  href={profile.basics.socialLinks.find(link => link.name === 'LinkedIn')?.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
@@ -33,9 +33,9 @@ export default function Footer() {
                 </a>
               )}
               
-              {profile.basics.socialLinks.github && (
+              {profile.basics.socialLinks.find(link => link.name === 'GitHub') && (
                 <a 
-                  href={profile.basics.socialLinks.github} 
+                  href={profile.basics.socialLinks.find(link => link.name === 'GitHub')?.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="GitHub"
@@ -47,9 +47,9 @@ export default function Footer() {
                 </a>
               )}
               
-              {profile.basics.socialLinks.twitter && (
+              {profile.basics.socialLinks.find(link => link.name === 'Twitter') && (
                 <a 
-                  href={profile.basics.socialLinks.twitter} 
+                  href={profile.basics.socialLinks.find(link => link.name === 'Twitter')?.url} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label="Twitter"
