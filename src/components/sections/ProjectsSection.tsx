@@ -25,14 +25,14 @@ export default function ProjectsSection() {
   
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4">
-        {/* <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Projects</h2> */}
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-center mb-12">
+      <div className="container-wide">
+        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-900 dark:text-white">Projects</h2>
+        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-center mb-12 font-light">
           Explore my recent work and personal projects
         </p>
         
         {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
           <button
             className={`px-4 py-2 rounded-md text-sm ${
               filter === null 
@@ -47,7 +47,7 @@ export default function ProjectsSection() {
           {allTechnologies.map(tech => (
             <button
               key={tech}
-              className={`px-4 py-2 rounded-md text-sm ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 filter === tech
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -90,7 +90,7 @@ export default function ProjectsSection() {
             {filteredProjects.map((project) => (
               <div 
                 key={project.id}
-                className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+                className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="relative h-48 bg-gray-200 dark:bg-gray-700">
                   {project.imageUrl ? (
@@ -131,7 +131,7 @@ export default function ProjectsSection() {
                       {project.stack.map(tech => (
                         <span 
                           key={`${project.id}-${tech}`}
-                          className="px-2 py-1 text-xs rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                          className="px-2 py-1 text-xs rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                         >
                           {tech}
                         </span>
@@ -145,7 +145,7 @@ export default function ProjectsSection() {
                         href={project.demoUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-colors"
+                        className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all duration-300 transform hover:-translate-y-0.5"
                       >
                         View Demo
                       </a>
@@ -156,7 +156,7 @@ export default function ProjectsSection() {
                         href={project.repoUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-block px-4 py-2 bg-transparent border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-colors"
+                        className="inline-flex items-center px-4 py-2 bg-transparent border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 transition-all duration-300 transform hover:-translate-y-0.5"
                       >
                         Source Code
                       </a>

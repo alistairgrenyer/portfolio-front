@@ -57,8 +57,8 @@ export default function ContactSection() {
   
   return (
     <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
+      <div className="container-tight">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">Get In Touch</h2>
         
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Contact Information */}
