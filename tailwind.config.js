@@ -8,16 +8,69 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'Arial', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-geist-sans)', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
       },
-      // Instead of nested objects, define as direct color values
       colors: {
-        'bg-light': '#ffffff',
-        'bg-dark': '#0a0a0a',
-        'fg-light': '#171717',
-        'fg-dark': '#ededed',
+        // Custom colors for backgrounds and text
+        primary: {
+          50: '#f0f9ff',
+          100: '#e0f2fe',
+          200: '#bae6fd',
+          300: '#7dd3fc',
+          400: '#38bdf8',
+          500: '#0ea5e9',
+          600: '#0284c7',
+          700: '#0369a1',
+          800: '#075985',
+          900: '#0c4a6e',
+          950: '#082f49',
+        },
+        gray: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+          950: '#030712',
+        },
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            a: {
+              color: theme('colors.primary.600'),
+              '&:hover': {
+                color: theme('colors.primary.800'),
+              },
+            },
+            'h1,h2,h3,h4,h5,h6': {
+              color: theme('colors.gray.900'),
+              fontWeight: '600',
+            },
+          },
+        },
+        dark: {
+          css: {
+            color: theme('colors.gray.300'),
+            a: {
+              color: theme('colors.primary.400'),
+              '&:hover': {
+                color: theme('colors.primary.300'),
+              },
+            },
+            'h1,h2,h3,h4,h5,h6': {
+              color: theme('colors.gray.100'),
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [],

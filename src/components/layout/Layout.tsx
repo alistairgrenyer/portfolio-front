@@ -29,12 +29,17 @@ export default function Layout({ children }: LayoutProps) {
   useEffect(() => {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
+      document.documentElement.style.colorScheme = 'dark';
     } else {
       document.documentElement.classList.remove('dark');
+      document.documentElement.style.colorScheme = 'light';
     }
     
     // Save preference to local storage
     localStorage.setItem('theme', theme);
+    
+    // Force Tailwind to recognize the theme change
+    document.body.className = theme === 'dark' ? 'dark' : '';
   }, [theme]);
   
   // Toggle theme
@@ -53,7 +58,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Theme Toggle Button */}
       <button
         onClick={toggleTheme}
-        className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 hover:ring-2 hover:ring-blue-500 dark:hover:ring-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
+        className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 hover:ring-2 hover:ring-blue-500 dark:hover:ring-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
         aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       >
         <span className="sr-only">{theme === 'light' ? 'Enable dark mode' : 'Enable light mode'}</span>
