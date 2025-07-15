@@ -193,7 +193,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
           {/* UK Map Path */}
           <path 
             d={ukMapPath} 
-            className="fill-gray-200 dark:fill-gray-700 stroke-gray-400 dark:stroke-gray-500" 
+            className="fill-surface dark:fill-surface-dark stroke-primary dark:stroke-primary-dark stroke-opacity-20" 
             strokeWidth="1.5"
             strokeLinejoin="round"
             strokeLinecap="round"
@@ -235,7 +235,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                     cx="0" 
                     cy="0" 
                     r="30" 
-                    className="fill-blue-300 dark:fill-blue-700 opacity-50"
+                    className="fill-accent dark:fill-accent-dark opacity-30"
                   />
                 )}
                 
@@ -245,7 +245,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                     cx="0" 
                     cy="0" 
                     r="24"
-                    className="animate-ping fill-blue-400 dark:fill-blue-600 opacity-75"
+                    className="animate-ping fill-accent dark:fill-accent-dark opacity-50"
                   />
                 )}
                 
@@ -254,7 +254,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                   cx="0" 
                   cy="0" 
                   r="20" 
-                  className="fill-blue-600 stroke-white stroke-2"
+                  className="fill-accent dark:fill-accent-dark stroke-background dark:stroke-background-dark stroke-2"
                 />
                 
                 {/* City name label */}
@@ -264,13 +264,13 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
                   textAnchor="middle"
                   fontSize="50"
                   fontWeight="bold"
-                  className="fill-gray-900 dark:fill-white"
+                  className="fill-primary dark:fill-primary-dark font-heading"
                   style={{ pointerEvents: 'none' }}
                 >
                   <tspan
                     dy="0"
                     x="0"
-                    className="stroke-white dark:stroke-gray-900 stroke-[2px] paint-order-stroke"
+                    className="stroke-background dark:stroke-background-dark stroke-[2px] paint-order-stroke"
                   >
                     {cityName.charAt(0).toUpperCase() + cityName.slice(1)}
                   </tspan>

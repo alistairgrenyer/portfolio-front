@@ -78,23 +78,23 @@ export default function ExperienceSection() {
   }, [profile]);
   
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="experience" className="py-20 bg-surface dark:bg-surface-dark">
       <div className="container-wide">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">Experience</h2>
+        <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-12 text-center text-primary dark:text-primary-dark">Experience</h2>
         
         {/* Two-panel layout with map on left and experience timeline on right */}
         {!loading && profile?.experience && (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             {/* Left panel: Map with pins */}
             <div className="lg:col-span-1">
-              <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">My UK Work Locations</h3>
-              <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-md h-64 md:h-[480px] border border-gray-100 dark:border-gray-700">
+              <h3 className="text-xl font-heading font-semibold mb-4 text-primary dark:text-primary-dark">My UK Work Locations</h3>
+              <div className="bg-background dark:bg-background-dark rounded-xl p-4 shadow-md h-64 md:h-[480px] border border-surface dark:border-surface-dark">
                 <LocationMap 
                   locations={experienceLocations}
                   onPinClick={handlePinClick}
                 />
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center italic">Click on a location pin to highlight the related experience</p>
+              <p className="text-sm text-primary dark:text-primary-dark opacity-70 mt-2 text-center italic">Click on a location pin to highlight the related experience</p>
             </div>
             
             {/* Right panel: Experience timeline */}
@@ -103,17 +103,17 @@ export default function ExperienceSection() {
                 {loading ? (
                   <div className="animate-pulse space-y-8">
                     {[...Array(3)].map((_, i) => (
-                      <div key={i} className="flex bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm">
+                      <div key={i} className="flex bg-background dark:bg-background-dark p-6 rounded-xl shadow-sm">
                         <div className="mr-4 w-24">
-                          <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded-md w-20 mb-2"></div>
-                          <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded-md w-16"></div>
+                          <div className="h-5 bg-surface dark:bg-surface-dark rounded-md w-20 mb-2"></div>
+                          <div className="h-5 bg-surface dark:bg-surface-dark rounded-md w-16"></div>
                         </div>
                         <div className="flex-1">
-                          <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-md w-3/4 mb-2"></div>
-                          <div className="h-5 bg-gray-200 dark:bg-gray-700 rounded-md w-1/2 mb-4"></div>
-                          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-md w-full mb-2"></div>
-                          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-md w-5/6 mb-2"></div>
-                          <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded-md w-4/6"></div>
+                          <div className="h-6 bg-surface dark:bg-surface-dark rounded-md w-3/4 mb-2"></div>
+                          <div className="h-5 bg-surface dark:bg-surface-dark rounded-md w-1/2 mb-4"></div>
+                          <div className="h-4 bg-surface dark:bg-surface-dark rounded-md w-full mb-2"></div>
+                          <div className="h-4 bg-surface dark:bg-surface-dark rounded-md w-5/6 mb-2"></div>
+                          <div className="h-4 bg-surface dark:bg-surface-dark rounded-md w-4/6"></div>
                         </div>
                       </div>
                     ))}
@@ -123,24 +123,24 @@ export default function ExperienceSection() {
                     {getSortedExperience().map((exp, index) => (
                       <div 
                         key={exp.company} 
-                        className={`relative bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md border transition-all duration-300 ${index === 0 && highlightedIndex !== null ? 'border-blue-400 dark:border-blue-500 ring-2 ring-blue-400 dark:ring-blue-600 ring-opacity-50' : 'border-gray-100 dark:border-gray-700'}`}
+                        className={`relative bg-background dark:bg-background-dark p-6 rounded-xl shadow-md border transition-all duration-300 ${index === 0 && highlightedIndex !== null ? 'border-accent dark:border-accent-dark ring-2 ring-accent dark:ring-accent-dark ring-opacity-50' : 'border-surface dark:border-surface-dark'}`}
                       >
                         {/* Header: Position, company, and date */}
                         <div className="mb-5">
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                             <div>
-                              <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.position}</h3>
-                              <p className="text-lg text-blue-600 dark:text-blue-400 font-medium">{exp.company}</p>
+                              <h3 className="text-xl font-heading font-semibold text-primary dark:text-primary-dark">{exp.position}</h3>
+                              <p className="text-lg text-accent dark:text-accent-dark font-medium">{exp.company}</p>
                             </div>
-                            <div className="text-sm font-medium bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full mt-2 md:mt-0 inline-block">
+                            <div className="text-sm font-medium bg-surface dark:bg-surface-dark text-primary dark:text-primary-dark px-3 py-1 rounded-full mt-2 md:mt-0 inline-block">
                               <time dateTime={exp.startDate}>{formatDate(exp.startDate)}</time>
                               <span className="mx-2">—</span>
                               <time dateTime={exp.endDate}>{formatDate(exp.endDate)}</time>
                             </div>
                           </div>
                           {exp.location && (
-                            <div className="text-sm text-gray-600 dark:text-gray-400 mt-2 flex items-center">
-                              <svg className="w-4 h-4 mr-1 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <div className="text-sm text-primary dark:text-primary-dark opacity-70 mt-2 flex items-center">
+                              <svg className="w-4 h-4 mr-1 text-accent dark:text-accent-dark opacity-80" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                               </svg>
                               <span>{exp.location}</span>
@@ -150,9 +150,9 @@ export default function ExperienceSection() {
                         
                         {/* Highlights */}
                         <div className="mt-4">
-                          <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                          <ul className="list-disc pl-5 space-y-2 text-primary dark:text-primary-dark opacity-90">
                             {exp.highlights.map((highlight, i) => (
-                              <li key={i} className="leading-relaxed">{highlight}</li>
+                              <li key={i} className="leading-relaxed font-body">{highlight}</li>
                             ))}
                           </ul>
                         </div>
@@ -160,7 +160,7 @@ export default function ExperienceSection() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-center text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm">No experience data available.</p>
+                  <p className="text-center text-primary dark:text-primary-dark opacity-70 bg-background dark:bg-background-dark p-6 rounded-xl shadow-sm">No experience data available.</p>
                 )}
               </div>
             </div>

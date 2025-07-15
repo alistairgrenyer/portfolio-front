@@ -9,56 +9,33 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  
-  // Initialize theme based on user preference
+  const [theme, setTheme] = useState('light');
+
   useEffect(() => {
-    // Check local storage first
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    
-    // If no saved preference, check system preference
-    if (!savedTheme) {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
-    } else {
-      setTheme(savedTheme);
-    }
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.documentElement.setAttribute('data-theme', savedTheme);
   }, []);
-  
-  // Apply theme changes
-  useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.colorScheme = 'dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.colorScheme = 'light';
-    }
-    
-    // Save preference to local storage
-    localStorage.setItem('theme', theme);
-    
-    // Force Tailwind to recognize the theme change
-    document.body.className = theme === 'dark' ? 'dark' : '';
-  }, [theme]);
-  
-  // Toggle theme
+
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
   };
   
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
       <Header />
       
-      <main className="flex-grow pt-16 container-tight">
+      <main className="flex-grow pt-16 container-wide">
         {children}
       </main>
       
       {/* Theme Toggle Button */}
       <button
         onClick={toggleTheme}
-        className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-50 p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 hover:ring-2 hover:ring-blue-500 dark:hover:ring-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ease-in-out"
+        className="fixed bottom-6 right-6 md:bottom-25 md:right-8 z-50 p-3 rounded-full bg-background dark:bg-background-dark shadow-lg ring-1 ring-border dark:ring-border-dark hover:ring-2 hover:ring-accent dark:hover:ring-accent-dark focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-300 ease-in-out"
         aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       >
         <span className="sr-only">{theme === 'light' ? 'Enable dark mode' : 'Enable light mode'}</span>

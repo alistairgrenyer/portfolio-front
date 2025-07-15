@@ -15,43 +15,43 @@ export default function Home() {
       </section>
       
       {/* About Section */}
-      <section id="about" className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-16 bg-[var(--color-surface)]">
+        <div className="container-wide">
           <AboutSection />
         </div>
       </section>
       
       {/* Projects Section */}
       <section id="projects" className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container-wide">
           <ProjectsSection />
         </div>
       </section>
       
       {/* Skills Section */}
-      <section id="skills" className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
+      <section id="skills" className="py-16 bg-[var(--color-surface-muted)]">
+        <div className="container-wide">
           <SkillsSection />
         </div>
       </section>
       
       {/* Experience Section */}
       <section id="experience" className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container-wide">
           <ExperienceSection />
         </div>
       </section>
       
       {/* Education Section */}
-      <section id="education" className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
+      <section id="education" className="py-16 bg-[var(--color-surface)]">
+        <div className="container-wide">
           <EducationSection />
         </div>
       </section>
       
       {/* Contact Section */}
       <section id="contact" className="py-16">
-        <div className="container mx-auto px-4">
+        <div className="container-wide">
           <ContactSection />
         </div>
       </section>

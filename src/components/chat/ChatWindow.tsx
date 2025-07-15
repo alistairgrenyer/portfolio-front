@@ -104,7 +104,7 @@ export default function ChatWindow({
   return (
     <div 
       ref={windowRef}
-      className={`fixed bottom-24 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] bg-white dark:bg-gray-900 rounded-lg shadow-xl flex flex-col transition-all duration-300 z-40 ${
+      className={`fixed bottom-24 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] bg-background dark:bg-background-dark rounded-lg shadow-xl flex flex-col transition-all duration-300 z-40 ${
         isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10 pointer-events-none'
       }`}
       role="dialog"
@@ -113,14 +113,14 @@ export default function ChatWindow({
       aria-live="polite"
     >
       {/* Header */}
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
-        <h2 id="chat-title" className="text-lg font-semibold text-gray-900 dark:text-white">
+      <div className="p-4 border-b border-surface dark:border-surface-dark flex justify-between items-center">
+        <h2 id="chat-title" className="text-lg font-heading font-semibold text-primary dark:text-primary-dark">
           Alistair's Assistant
         </h2>
         <button 
           ref={closeButtonRef}
           onClick={onClose}
-          className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1"
+          className="text-primary dark:text-primary-dark opacity-70 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark rounded p-1"
           aria-label="Close chat"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
