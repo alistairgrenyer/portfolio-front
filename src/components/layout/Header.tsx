@@ -43,11 +43,11 @@ export default function Header() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          {['home', 'about', 'projects', 'skills', 'experience', 'education', 'contact'].map((item) => (
+          {['home', 'projects', 'skills', 'experience', 'education', 'contact'].map((item) => (
             <a
               key={item}
               href={`#${item}`}
-              className="text-accent dark:text-accent-dark hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 capitalize font-medium text-sm lg:text-base transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
+              className="text-accent dark:text-accent-dark hover:text-blue-600 dark:text-primary-dark dark:hover:text-primary capitalize font-medium text-sm lg:text-base transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
               onClick={(e) => { e.preventDefault(); scrollToSection(item); }}
             >
               {item}

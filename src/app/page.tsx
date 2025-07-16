@@ -14,12 +14,12 @@ export default function Home() {
         <HomeSection />
       </section>
       
-      {/* About Section */}
+      {/* About Section
       <section id="about" className="py-16 bg-[var(--color-surface)]">
         <div className="container-wide">
           <AboutSection />
         </div>
-      </section>
+      </section> */}
       
       {/* Projects Section */}
       <section id="projects" className="py-16">
@@ -29,7 +29,7 @@ export default function Home() {
       </section>
       
       {/* Skills Section */}
-      <section id="skills" className="py-16 bg-[var(--color-surface-muted)]">
+      <section id="skills" className="py-16">
         <div className="container-wide">
           <SkillsSection />
         </div>
@@ -43,7 +43,7 @@ export default function Home() {
       </section>
       
       {/* Education Section */}
-      <section id="education" className="py-16 bg-[var(--color-surface)]">
+      <section id="education" className="py-16">
         <div className="container-wide">
           <EducationSection />
         </div>

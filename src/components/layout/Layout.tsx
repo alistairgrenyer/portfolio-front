@@ -25,7 +25,7 @@ export default function Layout({ children }: LayoutProps) {
   };
   
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-gradient-steel text-gray-900 dark:text-white transition-colors duration-300">
       <Header />
       
       <main className="flex-grow pt-16 container-wide">

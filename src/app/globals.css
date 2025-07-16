@@ -5,50 +5,44 @@
 
 /* 2. Design tokens → generate utilities */
 @theme {
-  /* -------- Colour palette (Slate Greys × Electric Blues × Mint Greens) -------- */
+  /* -------- Colour palette (Slate Greys × Mint Greens) -------- */
   /* Light / Default */
   /* --- Slate Greys (UI chrome) --- */
   --color-bg:            hsl(210 10% 8%);   /* #0d1118 */
   --color-surface:       hsl(210 10% 14%);  /* #1a222c */
   --color-surface-muted: hsl(210 10% 20%);  /* #2c3645 */
-  --color-border:        hsl(210 10% 30%);  /* subtle strokes */
+  --color-border:        hsl(210 10% 30%);
 
   /* --- Text --- */
   --color-text-primary:   hsl(0 0% 96%);
   --color-text-secondary: hsl(0 0% 75%);
   --color-text-muted:     hsl(0 0% 55%);
 
-  /* --- Electric Blues (primary actions) --- */
-  --color-primary:        hsl(200 100% 50%); /* #009dff */
-  --color-primary-light:  hsl(200 100% 65%); /* #4dbfff */
-  --color-primary-dark:   hsl(200 100% 40%); /* #0077cc */
+  /* --- Mint Greens (primary & accents) --- */
+  --color-primary:        hsl(160 70% 46%);  /* #1ecf91 */
+  --color-primary-light:  hsl(160 70% 65%);  /* #63e2b2 */
+  --color-primary-dark:   hsl(160 70% 35%);  /* #169c6c */
 
-  /* --- Mint Greens (accent / confirmations) --- */
-  --color-accent:         hsl(160 75% 45%);  /* #20c997 */
-  --color-accent-light:   hsl(160 70% 65%);  /* #66deb9 */
-  --color-accent-dark:    hsl(160 80% 35%);  /* #18966e */
+  --color-accent:         hsl(155 70% 50%);  /* #1fd38d */
+  --color-accent-light:   hsl(155 70% 70%);  /* #61e7b9 */
+  --color-accent-dark:    hsl(155 80% 38%);  /* #189d6d */
 
   /* --- Utility highlight --- */
-  --color-highlight:      hsl(160 80% 75%);  /* subtle mint highlight */
+  --color-highlight:      hsl(160 80% 75%);
 
   /* --- Code blocks --- */
-  --color-code-bg:       hsl(220 5% 18%);
+  --color-code-bg:        hsl(220 5% 18%);
 
   /* Semi‑transparent overlays */
   --color-overlay-800:  hsl(210 10% 8% / .8);
   --color-overlay-600:  hsl(210 10% 8% / .6);
   --color-overlay-400:  hsl(210 10% 8% / .4);
 
-  /* -------- Gradients (no cross‑category mixing) -------- */
-  /* Electric Blues */
-  --gradient-brand:   linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(200 100% 40%) 100%);
-  --gradient-ocean:   linear-gradient(90deg, hsl(200 100% 60%) 0%, hsl(210 90% 50%) 100%);
-
-  /* Mint Greens */
-  --gradient-sunset:  linear-gradient(135deg, hsl(160 75% 45%) 0%, hsl(160 75% 35%) 100%);
-
-  /* Slate Greys */
-  --gradient-steel:   linear-gradient(135deg, hsl(210 10% 24%) 0%, hsl(210 10% 14%) 100%);
+  /* -------- Gradients (Mint / Slate) -------- */
+  --gradient-brand:   linear-gradient(135deg, hsl(160 70% 50%) 0%, hsl(160 70% 35%) 100%);
+  --gradient-ocean:   linear-gradient(90deg,  hsl(160 70% 60%) 0%, hsl(160 70% 40%) 100%);
+  --gradient-sunset:  linear-gradient(45deg,  hsl(160 100% 88%) 0%, hsl(160 70% 65%) 100%);
+  --gradient-steel:   linear-gradient(135deg, hsl(210 10% 5%) 0%, hsl(210 10% 14%) 50%);
 
   /* -------- Spacing scale (extra) -------- */
   --spacing-72: 18rem; /* 288px */
@@ -80,7 +74,7 @@
   --shadow-sm:  0 2px 4px hsl(210 8% 5% /.3);
   --shadow-md:  0 4px 8px hsl(210 8% 5% /.35);
   --shadow-lg:  0 8px 16px hsl(210 8% 5% /.4);
-  --shadow-glow: 0 0 10px hsl(200 100% 50% /.6);
+  --shadow-glow: 0 0 10px hsl(160 70% 50% /.6);
 
   /* -------- Font sizes -------- */
   --font-size-display:   clamp(2.75rem, 1.2rem + 5vw, 4rem)/1.1;
@@ -139,25 +133,23 @@
     --color-text-secondary:hsl(0 0% 70%);
     --color-text-muted:    hsl(0 0% 55%);
 
-    /* Electric Blues */
-    --color-primary:       hsl(200 100% 60%);
-    --color-primary-light: hsl(200 100% 70%);
-    --color-primary-dark:  hsl(200 100% 50%);
-
     /* Mint Greens */
-    --color-accent:        hsl(160 75% 55%);
-    --color-accent-light:  hsl(160 75% 70%);
-    --color-accent-dark:   hsl(160 75% 45%);
+    --color-primary:       hsl(160 70% 55%);
+    --color-primary-light: hsl(160 70% 70%);
+    --color-primary-dark:  hsl(160 70% 45%);
+
+    --color-accent:        hsl(155 70% 60%);
+    --color-accent-light:  hsl(155 70% 75%);
+    --color-accent-dark:   hsl(155 70% 50%);
 
     --color-highlight:     hsl(160 80% 80%);
     --color-code-bg:       hsl(220 5% 12%);
 
-    /* Shadows adjust slightly lighter for dark surfaces */
     --shadow-xs:  0 1px 2px hsl(210 8% 5% /.4);
     --shadow-sm:  0 2px 4px hsl(210 8% 5% /.4);
     --shadow-md:  0 4px 8px hsl(210 8% 5% /.45);
     --shadow-lg:  0 8px 16px hsl(210 8% 5% /.5);
-    --shadow-glow: 0 0 12px hsl(200 100% 60% /.7);
+    --shadow-glow: 0 0 12px hsl(160 70% 55% /.7);
   }
 }
 

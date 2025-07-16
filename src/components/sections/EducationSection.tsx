@@ -6,14 +6,14 @@ export default function EducationSection() {
   const { profile, loading } = useProfile();
   
   return (
-    <section id="education" className="py-20 bg-background dark:bg-background-dark">
+    <section id="education" className="py-20">
       <div className="container mx-auto px-4">
         {/* <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-12 text-center text-primary dark:text-primary-dark">Education & Certifications</h2> */}
         
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
           {/* Education */}
           <div>
-            <h3 className="text-2xl font-heading font-semibold mb-6 text-primary dark:text-primary-dark border-b border-surface dark:border-surface-dark pb-2">Education</h3>
+            <h3 className="text-2xl font-heading font-semibold mb-6 text-primary dark:text-primary-dark border-b border-background dark:border-background-dark pb-2">Education</h3>
             
             {loading ? (
               <div className="animate-pulse space-y-6">
@@ -54,7 +54,7 @@ export default function EducationSection() {
           
           {/* Certifications */}
           <div>
-            <h3 className="text-2xl font-heading font-semibold mb-6 text-primary dark:text-primary-dark border-b border-surface dark:border-surface-dark pb-2">Certifications</h3>
+            <h3 className="text-2xl font-heading font-semibold mb-6 text-primary dark:text-primary-dark border-b border-background dark:border-background-dark pb-2">Certifications</h3>
             
             {loading ? (
               <div className="animate-pulse space-y-4">
