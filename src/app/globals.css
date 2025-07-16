@@ -125,8 +125,8 @@
 
     /* Copy colours */
     --color-primary:  hsl(0 0% 100%);
-    --color-primary-light:hsl(0 0% 80%);
-    --color-primary-dark: hsl(0 0% 65%);
+    --color-primary-light:hsl(0 0% 95%);
+    --color-primary-dark: hsl(0 0% 85%);
 
     --color-accent:        hsl(155 70% 60%);
     --color-accent-light:  hsl(155 70% 75%);
