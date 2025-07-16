@@ -14,47 +14,15 @@ export default function Home() {
         <HomeSection />
       </section>
       
-      {/* About Section
-      <section id="about" className="py-16 bg-[var(--color-surface)]">
-        <div className="container-wide">
-          <AboutSection />
-        </div>
-      </section> */}
+      <ProjectsSection />
       
-      {/* Projects Section */}
-      <section id="projects" className="py-16">
-        <div className="container-wide">
-          <ProjectsSection />
-        </div>
-      </section>
+      <SkillsSection />
       
-      {/* Skills Section */}
-      <section id="skills" className="py-16">
-        <div className="container-wide">
-          <SkillsSection />
-        </div>
-      </section>
+      <ExperienceSection />
       
-      {/* Experience Section */}
-      <section id="experience" className="py-16">
-        <div className="container-wide">
-          <ExperienceSection />
-        </div>
-      </section>
+      <EducationSection />
       
-      {/* Education Section */}
-      <section id="education" className="py-16">
-        <div className="container-wide">
-          <EducationSection />
-        </div>
-      </section>
-      
-      {/* Contact Section */}
-      <section id="contact" className="py-16">
-        <div className="container-wide">
-          <ContactSection />
-        </div>
-      </section>
+      <ContactSection />
     </main>
   );
 }

@@ -78,7 +78,7 @@ export default function ExperienceSection() {
   }, [profile]);
   
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" data-aos="fade-up" className="py-20">
       <div className="container-wide">
         <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-12 text-center text-primary dark:text-primary-dark">Experience</h2>
         

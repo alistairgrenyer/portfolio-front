@@ -24,7 +24,7 @@ export default function ProjectsSection() {
     : projects;
   
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" data-aos="fade-up" className="py-20">
       <div className="container-wide">
         <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-6 text-center text-primary dark:text-primary-dark">Projects</h2>
         <p className="text-lg text-primary dark:text-primary-dark opacity-80 max-w-3xl mx-auto text-center mb-12 font-body">

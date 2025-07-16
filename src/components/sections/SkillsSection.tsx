@@ -7,7 +7,7 @@ export default function SkillsSection() {
   const { profile, loading } = useProfile();
   
   return (
-    <section id="skills" className="py-20 bg-background dark:bg-background-dark">
+    <section id="skills" data-aos="fade-up" className="py-20 bg-background dark:bg-background-dark">
       <div className="container-tight">
         <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-10 text-center text-primary dark:text-primary-dark">Skills & Expertise</h2>
         

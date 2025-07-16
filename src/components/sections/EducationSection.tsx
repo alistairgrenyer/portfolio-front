@@ -6,7 +6,7 @@ export default function EducationSection() {
   const { profile, loading } = useProfile();
   
   return (
-    <section id="education" className="py-20">
+    <section id="education" data-aos="fade-up" className="py-20">
       <div className="container mx-auto px-4">
         {/* <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-12 text-center text-primary dark:text-primary-dark">Education & Certifications</h2> */}
         

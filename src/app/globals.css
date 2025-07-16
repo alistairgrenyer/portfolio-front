@@ -238,4 +238,15 @@
   height: var(--size-avatar-lg);
 }
 
+/* Custom AOS fade-up override */
+.aos-init[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translate3d(0, 120px, 0) !important;
+}
+
+.aos-animate[data-aos="fade-up"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) !important;
+}
+
 /* End globals.css */

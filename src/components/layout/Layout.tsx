@@ -3,6 +3,8 @@
 import { ReactNode, useState, useEffect } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +17,12 @@ export default function Layout({ children }: LayoutProps) {
     const savedTheme = localStorage.getItem('theme') || 'light';
     setTheme(savedTheme);
     document.documentElement.setAttribute('data-theme', savedTheme);
+  }, []);
+
+  useEffect(() => {
+    AOS.init({ once: true, duration: 1200, offset: 100, easing: 'ease-out-cubic' });
+    // Refresh AOS to detect any dynamically loaded sections
+    AOS.refresh();
   }, []);
 
   const toggleTheme = () => {

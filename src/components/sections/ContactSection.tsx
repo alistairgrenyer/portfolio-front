@@ -56,7 +56,7 @@ export default function ContactSection() {
   };
   
   return (
-    <section id="contact" className="py-20 bg-surface dark:bg-surface-dark">
+    <section id="contact" data-aos="fade-up" className="py-20 bg-surface dark:bg-surface-dark">
       <div className="container-tight">
         <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-12 text-center text-primary dark:text-primary-dark">Get In Touch</h2>
         
