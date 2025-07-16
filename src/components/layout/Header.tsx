@@ -28,13 +28,13 @@ export default function Header() {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
-      <div className="container-tight flex justify-between items-center h-16 md:h-20">
+    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass shadow-card' : 'bg-transparent'}`}>
+      <div className="container-wide flex justify-between items-center h-16 md:h-20">
         {/* Logo/Name */}
         <div>
           <a 
             href="#home" 
-            className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+            className="text-xl md:text-2xl font-bold text-accent dark:text-accent-dark hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
             onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
           >
             {loading ? 'Portfolio' : profile?.basics.name || 'Portfolio'}
@@ -47,7 +47,7 @@ export default function Header() {
             <a
               key={item}
               href={`#${item}`}
-              className="text-gray-600 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 capitalize font-medium text-sm lg:text-base transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
+              className="text-accent dark:text-accent-dark hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 capitalize font-medium text-sm lg:text-base transition-colors duration-200 py-1 border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
               onClick={(e) => { e.preventDefault(); scrollToSection(item); }}
             >
               {item}
@@ -57,7 +57,7 @@ export default function Header() {
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+          className="md:hidden p-2 rounded-md text-accent dark:text-accent-dark hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
@@ -81,7 +81,7 @@ export default function Header() {
                 <a
                   key={item}
                   href={`#${item}`}
-                  className="py-3 px-2 text-gray-800 hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 capitalize font-medium transition-colors duration-200 flex items-center justify-between"
+                  className="py-3 px-2 text-accent dark:text-accent-dark hover:text-blue-600 dark:text-gray-200 dark:hover:text-blue-400 capitalize font-medium transition-colors duration-200 flex items-center justify-between"
                   onClick={(e) => { e.preventDefault(); scrollToSection(item); }}
                 >
                   <span>{item}</span>

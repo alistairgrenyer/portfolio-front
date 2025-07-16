@@ -35,7 +35,7 @@ export default function Layout({ children }: LayoutProps) {
       {/* Theme Toggle Button */}
       <button
         onClick={toggleTheme}
-        className="fixed bottom-6 right-6 md:bottom-25 md:right-8 z-50 p-3 rounded-full bg-background dark:bg-background-dark shadow-lg ring-1 ring-border dark:ring-border-dark hover:ring-2 hover:ring-accent dark:hover:ring-accent-dark focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-300 ease-in-out"
+        className="fixed bottom-6 right-6 md:bottom-7.5 md:right-30 z-50 p-3 rounded-full bg-background dark:bg-background-dark shadow-lg ring-1 ring-border dark:ring-border-dark hover:ring-2 hover:ring-accent dark:hover:ring-accent-dark focus:outline-none focus:ring-2 focus:ring-accent transition-all duration-300 ease-in-out"
         aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
       >
         <span className="sr-only">{theme === 'light' ? 'Enable dark mode' : 'Enable light mode'}</span>

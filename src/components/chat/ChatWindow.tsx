@@ -104,7 +104,7 @@ export default function ChatWindow({
   return (
     <div 
       ref={windowRef}
-      className={`fixed bottom-24 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] bg-background dark:bg-background-dark rounded-lg shadow-xl flex flex-col transition-all duration-300 z-40 ${
+      className={`fixed bottom-24 right-6 w-80 sm:w-96 h-[500px] max-h-[80vh] bg-[var(--color-surface)] rounded-lg shadow-xl flex flex-col transition-all duration-300 z-40 ${
         isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10 pointer-events-none'
       }`}
       role="dialog"

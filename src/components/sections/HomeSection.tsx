@@ -39,7 +39,7 @@ export default function HomeSection() {
                   e.preventDefault(); 
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); 
                 }}
-                className="px-6 py-3 bg-accent dark:bg-accent-dark text-white dark:text-primary font-medium rounded-lg hover:bg-accent-dark dark:hover:bg-accent shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark focus:ring-offset-2 dark:focus:ring-offset-background-dark"
+                className="px-6 py-3 bg-transparent border-2 border-accent dark:border-accent-dark text-accent dark:text-accent-dark text-lg font-medium rounded-lg hover:bg-surface dark:hover:bg-surface-dark shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark focus:ring-offset-2 dark:focus:ring-offset-background-dark"
               >
                 View Projects
               </a>
