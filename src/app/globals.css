@@ -1,91 +1,83 @@
 /* ─ globals.css ───────────────────────────────────────────── */
-
 /* 1. Load Tailwind (theme‑layer, base reset, utilities) */
 @import "tailwindcss";
 
 /* 2. Design tokens → generate utilities */
 @theme {
-  /* -------- Colour palette (Slate Greys × Mint Greens) -------- */
-  /* Light / Default */
-  /* --- Slate Greys (UI chrome) --- */
-  --color-bg:            hsl(210 10% 8%);   /* #0d1118 */
-  --color-surface:       hsl(210 10% 14%);  /* #1a222c */
-  --color-surface-muted: hsl(210 10% 20%);  /* #2c3645 */
+  /* ───────────────── Colour palette (Slate Greys × Mint Greens) ──────────────── */
+
+  /* Slate‑grey surfaces & borders */
+  --color-bg:            hsl(210 10%  8%);   /* #0d1118 */
+  --color-surface:       hsl(210 10% 14%);   /* #1a222c */
+  --color-surface-muted: hsl(210 10% 20%);   /* #2c3645 */
   --color-border:        hsl(210 10% 30%);
 
-  /* --- Text --- */
-  --color-text-primary:   hsl(0 0% 96%);
-  --color-text-secondary: hsl(0 0% 75%);
-  --color-text-muted:     hsl(0 0% 55%);
+  /* Copy colours — now whites / greys */
+  --color-primary:   hsl(0 0% 100%);  /* pure white */
+  --color-primary-light: hsl(0 0%  95%);
+  --color-primary-dark:     hsl(0 0%  85%);
 
-  /* --- Mint Greens (primary & accents) --- */
-  --color-primary:        hsl(160 70% 46%);  /* #1ecf91 */
-  --color-primary-light:  hsl(160 70% 65%);  /* #63e2b2 */
-  --color-primary-dark:   hsl(160 70% 35%);  /* #169c6c */
+  --color-accent:         hsl(155 70% 50%); /* #1fd38d */
+  --color-accent-light:   hsl(155 70% 70%); /* #61e7b9 */
+  --color-accent-dark:    hsl(155 80% 38%); /* #189d6d */
 
-  --color-accent:         hsl(155 70% 50%);  /* #1fd38d */
-  --color-accent-light:   hsl(155 70% 70%);  /* #61e7b9 */
-  --color-accent-dark:    hsl(155 80% 38%);  /* #189d6d */
-
-  /* --- Utility highlight --- */
-  --color-highlight:      hsl(160 80% 75%);
-
-  /* --- Code blocks --- */
-  --color-code-bg:        hsl(220 5% 18%);
+  /* Highlights & misc */
+  --color-highlight:      hsl(0 0% 100% / .08);
+  --color-code-bg:        hsl(220  5% 18%);
 
   /* Semi‑transparent overlays */
   --color-overlay-800:  hsl(210 10% 8% / .8);
   --color-overlay-600:  hsl(210 10% 8% / .6);
   --color-overlay-400:  hsl(210 10% 8% / .4);
 
-  /* -------- Gradients (Mint / Slate) -------- */
-  --gradient-brand:   linear-gradient(135deg, hsl(160 70% 50%) 0%, hsl(160 70% 35%) 100%);
-  --gradient-ocean:   linear-gradient(90deg,  hsl(160 70% 60%) 0%, hsl(160 70% 40%) 100%);
-  --gradient-sunset:  linear-gradient(45deg,  hsl(160 100% 88%) 0%, hsl(160 70% 65%) 100%);
-  --gradient-steel:   linear-gradient(135deg, hsl(210 10% 5%) 0%, hsl(210 10% 14%) 50%);
+  /* ─────────── Gradients (kept within mint & slate families) ─────────── */
+  --gradient-brand:  linear-gradient(135deg, hsl(160 70% 50%) 0%, hsl(160 70% 35%) 100%);
+  --gradient-ocean:  linear-gradient(90deg,  hsl(160 70% 60%) 0%, hsl(160 70% 40%) 100%);
+  --gradient-sunset: linear-gradient(45deg,  hsl(160 100% 88%) 0%, hsl(160 70% 65%) 100%);
+  --gradient-steel:  linear-gradient(135deg, hsl(210 10% 5%) 0%, hsl(210 10% 14%) 100%);
 
-  /* -------- Spacing scale (extra) -------- */
+  /* Spacing extensions */
   --spacing-72: 18rem; /* 288px */
   --spacing-80: 20rem; /* 320px */
   --spacing-96: 24rem; /* 384px */
 
-  /* -------- Container widths -------- */
-  --container-xs:  18rem;
-  --container-sm:  24rem;
-  --container-md:  40rem;
-  --container-lg:  64rem;
-  --container-xl:  80rem;
+  /* Container widths */
+  --container-xs: 18rem;
+  --container-sm: 24rem;
+  --container-md: 40rem;
+  --container-lg: 64rem;
+  --container-xl: 80rem;
   --container-2xl: 96rem;
   --container-3xl: 120rem;
 
-  /* -------- Breakpoints -------- */
+  /* Custom breakpoints */
   --breakpoint-xs: 30rem;  /* 480px */
   --breakpoint-3xl: 120rem;
 
-  /* -------- Radii -------- */
+  /* Radii */
   --radius-sm:   .25rem;
   --radius-md:   .5rem;
   --radius-lg:   1rem;
   --radius-full: 9999px;
   --radius-card: 1rem;
 
-  /* -------- Shadows -------- */
-  --shadow-xs:  0 1px 2px hsl(210 8% 5% /.3);
-  --shadow-sm:  0 2px 4px hsl(210 8% 5% /.3);
-  --shadow-md:  0 4px 8px hsl(210 8% 5% /.35);
-  --shadow-lg:  0 8px 16px hsl(210 8% 5% /.4);
-  --shadow-glow: 0 0 10px hsl(160 70% 50% /.6);
+  /* Shadows */
+  --shadow-xs:   0 1px 2px  hsl(210 8% 5% /.30);
+  --shadow-sm:   0 2px 4px  hsl(210 8% 5% /.30);
+  --shadow-md:   0 4px 8px  hsl(210 8% 5% /.35);
+  --shadow-lg:   0 8px 16px hsl(210 8% 5% /.40);
+  --shadow-glow: 0 0 10px   hsl(160 70% 50% /.60);
 
-  /* -------- Font sizes -------- */
-  --font-size-display:   clamp(2.75rem, 1.2rem + 5vw, 4rem)/1.1;
-  --font-size-h1:        2.25rem/1.2;
-  --font-size-h2:        1.875rem/1.25;
-  --font-size-h3:        1.5rem/1.3;
-  --font-size-h4:        1.25rem/1.4;
-  --font-size-body:      1rem/1.6;
-  --font-size-caption:   .875rem/1.6;
+  /* Typography scale */
+  --font-size-display: clamp(2.75rem, 1.2rem + 5vw, 4rem)/1.1;
+  --font-size-h1:      2.25rem/1.2;
+  --font-size-h2:      1.875rem/1.25;
+  --font-size-h3:      1.5rem/1.3;
+  --font-size-h4:      1.25rem/1.4;
+  --font-size-body:    1rem/1.6;
+  --font-size-caption: .875rem/1.6;
 
-  /* -------- Avatar sizes -------- */
+  /* Avatar sizes */
   --size-avatar-sm: 2rem;
   --size-avatar-md: 3rem;
   --size-avatar-lg: 4rem;
@@ -93,9 +85,10 @@
 
 /* 3. Global styling + run‑time dark‑mode overrides */
 @layer base {
-  /* Resets / typography */
+  /* Base reset & typography */
   html {
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
     font-size: 16px;
     background-color: var(--color-bg);
     color: var(--color-text-primary);
@@ -104,6 +97,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
     letter-spacing: -.015em;
+    color: var(--color-text-primary);
   }
 
   h1 { font: var(--font-size-h1); }
@@ -119,110 +113,92 @@
     border-radius: var(--radius-sm);
   }
 
-  /* Dark mode overrides */
+  /* Dark‑mode overrides */
   [data-theme="dark"] {
     color-scheme: dark;
-    /* Slate Greys (darker) */
+
+    /* Darker slate surfaces */
     --color-bg:            hsl(210 10% 6%);
     --color-surface:       hsl(210 10% 10%);
     --color-surface-muted: hsl(210 10% 14%);
     --color-border:        hsl(210 10% 25%);
 
-    /* Text */
-    --color-text-primary:  hsl(0 0% 90%);
-    --color-text-secondary:hsl(0 0% 70%);
-    --color-text-muted:    hsl(0 0% 55%);
-
-    /* Mint Greens */
-    --color-primary:       hsl(160 70% 55%);
-    --color-primary-light: hsl(160 70% 70%);
-    --color-primary-dark:  hsl(160 70% 45%);
+    /* Copy colours */
+    --color-primary:  hsl(0 0% 100%);
+    --color-primary-light:hsl(0 0% 80%);
+    --color-primary-dark: hsl(0 0% 65%);
 
     --color-accent:        hsl(155 70% 60%);
     --color-accent-light:  hsl(155 70% 75%);
     --color-accent-dark:   hsl(155 70% 50%);
 
-    --color-highlight:     hsl(160 80% 80%);
+    --color-highlight:     hsl(0 0% 100% / .10);
     --color-code-bg:       hsl(220 5% 12%);
 
-    --shadow-xs:  0 1px 2px hsl(210 8% 5% /.4);
-    --shadow-sm:  0 2px 4px hsl(210 8% 5% /.4);
-    --shadow-md:  0 4px 8px hsl(210 8% 5% /.45);
-    --shadow-lg:  0 8px 16px hsl(210 8% 5% /.5);
-    --shadow-glow: 0 0 12px hsl(160 70% 55% /.7);
+    --shadow-xs:   0 1px 2px  hsl(210 8% 5% /.40);
+    --shadow-sm:   0 2px 4px  hsl(210 8% 5% /.40);
+    --shadow-md:   0 4px 8px  hsl(210 8% 5% /.45);
+    --shadow-lg:   0 8px 16px hsl(210 8% 5% /.50);
+    --shadow-glow: 0 0 12px   hsl(160 70% 55% /.70);
   }
 }
 
-/* 4. One‑off utilities  */
-/* ---- Gradient helpers ---- */
-@utility bg-gradient-brand {
-  background-image: var(--gradient-brand);
-}
-@utility bg-gradient-ocean {
-  background-image: var(--gradient-ocean);
-}
-@utility bg-gradient-sunset {
-  background-image: var(--gradient-sunset);
-}
-@utility bg-gradient-steel {
-  background-image: var(--gradient-steel);
-}
+/* 4. One‑off utilities & components */
 
-/* ---- Card Shadows ---- */
-@utility shadow-card {
-  box-shadow: var(--shadow-md);
-}
-@utility shadow-card-lg {
-  box-shadow: var(--shadow-lg);
-}
+/* Gradient helpers */
+@utility bg-gradient-brand  { background-image: var(--gradient-brand); }
+@utility bg-gradient-ocean  { background-image: var(--gradient-ocean); }
+@utility bg-gradient-sunset { background-image: var(--gradient-sunset); }
+@utility bg-gradient-steel  { background-image: var(--gradient-steel); }
 
-/* ---- Glass effect ---- */
+/* Card shadows */
+@utility shadow-card    { box-shadow: var(--shadow-md); }
+@utility shadow-card-lg { box-shadow: var(--shadow-lg); }
+
+/* Frosted glass effect */
 @utility glass {
-  background: linear-gradient(
-    135deg,
-    hsl(0 0% 100% /.05),
-    hsl(0 0% 100% /.02)
-  );
+  background: linear-gradient(135deg,
+               hsl(0 0% 100% / .05),
+               hsl(0 0% 100% / .02));
   backdrop-filter: blur(10px);
-  border: 1px solid hsl(0 0% 100% /.08);
+  border: 1px solid hsl(0 0% 100% / .08);
 }
 
-/* ---- Button styles ---- */
+/* Button components */
 @utility btn {
   @apply inline-flex items-center justify-center gap-2
-          font-semibold leading-tight
+          px-4 py-2 rounded-md font-semibold leading-tight
           transition-all duration-150
-          rounded-md px-4 py-2
           bg-primary text-white hover:bg-primary-light
           shadow-xs hover:shadow-sm;
 }
 
 @utility btn-outline {
   @apply inline-flex items-center justify-center gap-2
-          font-semibold leading-tight
+          px-4 py-2 rounded-md font-semibold leading-tight
           transition-all duration-150
-          rounded-md px-4 py-2
           border border-primary text-primary
-          hover:bg-primary/10
-          shadow-xs hover:shadow-sm;
+          hover:bg-primary/10 shadow-xs hover:shadow-sm;
 }
 
-/* ---- Container tweak ---- */
+/* Wide container helper */
 @utility container-wide {
   max-width: var(--container-2xl);
   margin-inline: auto;
   padding-inline: 1rem;
 }
 
-/* ---- Animation keyframes & utilities ------ */
+/* Float animation */
 @keyframes float {
   from { transform: translateY(0); }
   to   { transform: translateY(-4%); }
 }
+@utility animate-float { animation: float 6s ease-in-out infinite alternate; }
 
-@utility animate-float {
-  animation: float 6s ease-in-out infinite alternate;
-}
+/* Avatar size shortcuts */
+@utility size-avatar-sm { width: var(--size-avatar-sm); height: var(--size-avatar-sm); }
+@utility size-avatar-md { width: var(--size-avatar-md); height: var(--size-avatar-md); }
+@utility size-avatar-lg { width: var(--size-avatar-lg); height: var(--size-avatar-lg); }
 
 /* ---- Avatar size utilities ---- */
 @utility size-avatar-sm {
