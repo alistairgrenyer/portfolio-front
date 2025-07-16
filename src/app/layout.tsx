@@ -4,7 +4,6 @@ import './globals.css';
 import React from "react";
 import Layout from '@/components/layout/Layout';
 import ClientChat from '@/components/chat/ClientChat';
-import { ChatProvider } from '@/context/ChatContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -29,12 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
-        <ChatProvider>
-          <Layout>
-            {children}
-            <ClientChat />
-          </Layout>
-        </ChatProvider>
+        <Layout>
+          {children}
+          <ClientChat />
+        </Layout>
       </body>
     </html>
   );

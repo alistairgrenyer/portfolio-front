@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import ChatLauncher from './ChatLauncher';
 import ChatWindow from './ChatWindow';
-import { useSharedChat } from '@/context/ChatContext';
+import useChat from '@/hooks/useChat';
 import { scrollToSection } from '@/utils/navigation';
 
 export default function Chat() {
@@ -14,8 +14,10 @@ export default function Chat() {
     scrollToSection(sectionId, { offset: 80 }); // Account for fixed header
   }, []);
   
-  // Use shared chat context
-  const { messages, isLoading, sendMessage } = useSharedChat();
+  // Initialize chat state
+  const { messages, isLoading, sendMessage } = useChat({
+    onNavigate: handleNavigate,
+  });
   
   // Toggle chat window
   const toggleChat = useCallback(() => {

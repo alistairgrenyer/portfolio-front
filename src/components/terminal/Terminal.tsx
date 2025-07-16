@@ -1,15 +1,13 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-import { Message } from '@/types/chat';
+import { useState, useEffect, useRef } from 'react';
 import { useTypewriter } from '../../hooks/useTypewriter';
-import { useSharedChat } from '@/context/ChatContext';
 
 interface TerminalProps {
   initialMessage?: string;
   prompt?: string;
   onSendMessage: (message: string) => void;
-  messages: Array<Message>;
+  messages: Array<{ role: 'user' | 'assistant'; content: string; id: string }>;
   isLoading?: boolean;
 }
 
@@ -17,19 +15,12 @@ export default function Terminal({
   initialMessage = "Welcome to Alistair's Portfolio Terminal. Type 'help' to see available commands.",
   prompt = "visitor@portfolio:~$",
   onSendMessage,
-  messages: propMessages,
-  isLoading: propIsLoading = false,
+  messages,
+  isLoading = false,
 }: TerminalProps) {
   const [input, setInput] = useState('');
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  
-  // Use shared chat context
-  const { messages: contextMessages, isLoading: contextIsLoading, sendMessage } = useSharedChat();
-  
-  // Use either provided props or context values
-  const messages = propMessages || contextMessages;
-  const isLoading = propIsLoading || contextIsLoading;
   
   // Typewriter effect for the initial message
   const { text: typedInitialMessage, isDone } = useTypewriter(initialMessage, {
@@ -56,12 +47,7 @@ export default function Terminal({
     e.preventDefault();
     
     if (input.trim() && !isLoading) {
-      // Use shared context if available, otherwise use prop function
-      if (sendMessage) {
-        sendMessage(input.trim(), true); // true indicates this is from terminal
-      } else if (onSendMessage) {
-        onSendMessage(input.trim());
-      }
+      onSendMessage(input.trim());
       setInput('');
     }
   };
