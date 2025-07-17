@@ -20,18 +20,18 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
       } mb-3`}
     >
       <div
-        className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+        className={`max-w-[80%] rounded-[var(--radius-lg)] px-4 py-2 ${
           message.role === 'user'
-            ? 'bg-accent dark:bg-accent-dark text-background dark:text-background-dark rounded-tr-none'
-            : 'bg-surface dark:bg-surface-dark text-primary dark:text-primary-dark rounded-tl-none'
+            ? 'bg-[var(--color-accent)] text-[var(--color-bg)] rounded-tr-none'
+            : 'bg-[var(--color-surface-muted)] text-[var(--color-primary)] rounded-tl-none'
         }`}
       >
         <div className="flex flex-col">
-          <div className="whitespace-pre-wrap break-words font-body">{message.content}</div>
+          <div className="whitespace-pre-wrap break-words">{message.content}</div>
           <div
             className={`text-xs mt-1 ${
-              message.role === 'user' ? 'text-background dark:text-background-dark opacity-80' : 'text-primary dark:text-primary-dark opacity-60'
-            } text-right font-body`}
+              message.role === 'user' ? 'text-[var(--color-bg)] opacity-80' : 'text-[var(--color-primary)] opacity-60'
+            } text-right`}
           >
             {formattedTime}
           </div>

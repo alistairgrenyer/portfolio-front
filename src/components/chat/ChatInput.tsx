@@ -52,7 +52,7 @@ const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>((
   };
   
   return (
-    <form onSubmit={handleSubmit} className="border-t border-surface dark:border-surface-dark p-4">
+    <form onSubmit={handleSubmit} className="border-t border-[var(--color-border)] p-4">
       <div className="flex items-end space-x-2">
         <div className="relative flex-1">
           <textarea
@@ -69,7 +69,7 @@ const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>((
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Ask me about Alistair's work..."
-            className="w-full resize-none rounded-lg border border-surface dark:border-surface-dark bg-background dark:bg-background-dark px-4 py-2 pr-12 focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark text-primary dark:text-primary-dark max-h-[120px] min-h-[42px] font-body"
+            className="w-full resize-none rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2 pr-12 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] text-[var(--color-primary)] max-h-[120px] min-h-[42px]"
             rows={1}
             disabled={disabled}
             aria-label="Chat message"
@@ -79,9 +79,9 @@ const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>((
             disabled={!message.trim() || disabled}
             className={`absolute bottom-2 right-2 p-1 rounded-full ${
               !message.trim() || disabled
-                ? 'text-primary dark:text-primary-dark opacity-30 cursor-not-allowed'
-                : 'text-accent dark:text-accent-dark hover:bg-surface dark:hover:bg-surface-dark hover:bg-opacity-50 dark:hover:bg-opacity-50'
-            } transition-colors focus:outline-none focus:ring-2 focus:ring-accent dark:focus:ring-accent-dark`}
+                ? 'text-[var(--color-primary)] opacity-30 cursor-not-allowed'
+                : 'text-[var(--color-accent)] hover:bg-[var(--color-surface)] hover:bg-opacity-50'
+            } transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]`}
             aria-label="Send message"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@ const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>((
           </button>
         </div>
       </div>
-      <div className="mt-2 text-xs text-primary dark:text-primary-dark opacity-60 text-center font-body">
+      <div className="mt-2 text-xs text-[var(--color-primary)] opacity-60 text-center">
         Press Enter to send, Shift+Enter for new line
       </div>
     </form>
