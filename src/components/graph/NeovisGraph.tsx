@@ -9,9 +9,25 @@ import type { GraphNode, GraphEdge } from '@/types/skills-graph';
 
 /* ─── Font styles for different node types ───────────────────────────── */
 const NODE_STYLES = {
-  root: { shape: 'box', font: { size: 24, bold: true, color: '#ffffff' } },
-  category: { shape: 'box', font: { size: 18, bold: true, color: '#ffffff' } },
-  skill: { shape: 'ellipse', font: { size: 14, color: '#ffffff' } }
+  root: { 
+    shape: 'box', 
+    font: { size: 24, bold: 'bold', color: '#000000' },
+    borderWidth: 2,
+    size: 30,
+    shadow: true
+  },
+  category: { 
+    shape: 'box', 
+    font: { size: 18, bold: 'bold', color: '#000000' },
+    borderWidth: 1,
+    size: 25,
+    shadow: true
+  },
+  skill: { 
+    shape: 'ellipse', 
+    font: { size: 14, color: '#000000' },
+    size: 20
+  }
 };
 
 /* ─── Component ───────────────────────────────────────────────────────── */
@@ -54,7 +70,11 @@ export default function SkillsGraph() {
             springConstant: 0.08
           }
         }, 
-        interaction: { zoomView: false } // we'll handle zoom
+        interaction: { 
+          zoomView: true,  // Enable native zoom for mouse wheel
+          navigationButtons: false,  // Hide default navigation buttons
+          keyboard: true  // Enable keyboard navigation
+        }
       }
     );
     
@@ -62,7 +82,7 @@ export default function SkillsGraph() {
 
     // fit once stabilised
     net.once('stabilized', () => {
-      net.fit({ animation: { duration: 300 } });
+      net.fit({ animation: true });
       setScale(net.getScale());
     });
 
@@ -72,17 +92,21 @@ export default function SkillsGraph() {
     return () => net.destroy();
   }, [graph]);
 
-  /* 2. Helpers --------------------------------------------------------- */
+  /* 2. Helpers --------------------------------------------------------- */
   const zoomBy = useCallback((factor: number) => {
     const net = networkRef.current;
     if (!net) return;
     const view = net.getViewPosition();
-    const opts = { animation: { duration: 300, easingFunction: 'easeInOutQuad' } };
-    net.moveTo({ position: view, scale: scale * factor, ...opts });
+    const newScale = scale * factor;
+    net.moveTo({ 
+      position: view, 
+      scale: newScale, 
+      animation: true
+    });
   }, [scale]);
 
   const resetView = useCallback(() => {
-    networkRef.current?.fit({ animation: { duration: 300 } });
+    networkRef.current?.fit({ animation: true });
   }, []);
 
   const toggleFull = useCallback(() => {
@@ -107,27 +131,50 @@ export default function SkillsGraph() {
       <div className="absolute top-2 right-2 flex flex-col gap-2">
         <button
           onClick={() => zoomBy(1.2)}
-          className="rounded bg-slate-800/80 hover:bg-slate-700 p-2 text-white"
-          title="Zoom In"
-        >＋</button>
+          className="rounded-full bg-blue-400 hover:bg-blue-500 p-2 text-white w-8 h-8 flex items-center justify-center shadow-md transition-all duration-200"
+          title="Zoom In"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+        </button>
 
         <button
           onClick={() => zoomBy(1 / 1.2)}
-          className="rounded bg-slate-800/80 hover:bg-slate-700 p-2 text-white"
-          title="Zoom Out"
-        >－</button>
+          className="rounded-full bg-blue-400 hover:bg-blue-500 p-2 text-white w-8 h-8 flex items-center justify-center shadow-md transition-all duration-200"
+          title="Zoom Out"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+          </svg>
+        </button>
 
         <button
           onClick={resetView}
-          className="rounded bg-slate-800/80 hover:bg-slate-700 p-2 text-white"
-          title="Reset View"
-        >🏠</button>
+          className="rounded-full bg-blue-400 hover:bg-blue-500 p-2 text-white w-8 h-8 flex items-center justify-center shadow-md transition-all duration-200"
+          title="Reset View"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+            <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+          </svg>
+        </button>
 
         <button
           onClick={toggleFull}
-          className="rounded bg-slate-800/80 hover:bg-slate-700 p-2 text-white"
-          title={isFull ? 'Exit Full Screen' : 'Full Screen'}
-        >{isFull ? '⧉' : '⬜'}</button>
+          className="rounded-full bg-blue-400 hover:bg-blue-500 p-2 text-white w-8 h-8 flex items-center justify-center shadow-md transition-all duration-200"
+          title={isFull ? "Exit Full Screen" : "Full Screen"}
+        >
+          {isFull ? (
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z"/>
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/>
+            </svg>
+          )}
+        </button>
       </div>
     </div>
   );
