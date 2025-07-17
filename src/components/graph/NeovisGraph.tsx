@@ -103,6 +103,8 @@ export default function SkillsGraph() {
       scale: newScale, 
       animation: true
     });
+    // Update the scale state after zooming
+    setScale(newScale);
   }, [scale]);
 
   const resetView = useCallback(() => {
