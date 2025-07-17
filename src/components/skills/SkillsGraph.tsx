@@ -46,8 +46,8 @@ export default function SkillsGraph({ className = '' }: SkillsGraphProps) {
       categoryNode:    s.getPropertyValue('--color-accent').trim(),
       skillNode:       s.getPropertyValue('--color-accent-light').trim(),
       edge:            s.getPropertyValue('--color-accent-dark').trim(),
-      labelCategory:   s.getPropertyValue('--color-primary').trim(),
-      labelSkill:      s.getPropertyValue('--color-primary-light').trim(),
+      labelCategory:   s.getPropertyValue('--color-highlight-other').trim(),
+      labelSkill:      s.getPropertyValue('--color-highlight-other').trim(),
     };
   }, []);
 
