@@ -1,0 +1,234 @@
+{
+  "nodes": [
+    {
+      "id": "root",
+      "label": "Skills",
+      "type": "root"
+    },
+    {
+      "id": "languages",
+      "label": "Languages",
+      "type": "category"
+    },
+    {
+      "id": "frontend",
+      "label": "Frontend",
+      "type": "category"
+    },
+    {
+      "id": "backend",
+      "label": "Backend",
+      "type": "category"
+    },
+    {
+      "id": "database",
+      "label": "Database",
+      "type": "category"
+    },
+    {
+      "id": "devops",
+      "label": "DevOps & Tools",
+      "type": "category"
+    },
+    {
+      "id": "python",
+      "label": "Python (3 years commercial)",
+      "type": "skill"
+    },
+    {
+      "id": "csharp",
+      "label": "C# (2 years commercial)",
+      "type": "skill"
+    },
+    {
+      "id": "java",
+      "label": "Java (1 year commercial)",
+      "type": "skill"
+    },
+    {
+      "id": "typescript",
+      "label": "JavaScript/TypeScript (1 year commercial)",
+      "type": "skill"
+    },
+    {
+      "id": "matlab",
+      "label": "MATLAB",
+      "type": "skill"
+    },
+    {
+      "id": "rust",
+      "label": "Rust",
+      "type": "skill"
+    },
+    {
+      "id": "html",
+      "label": "HTML",
+      "type": "skill"
+    },
+    {
+      "id": "css",
+      "label": "CSS",
+      "type": "skill"
+    },
+    {
+      "id": "react",
+      "label": "React (1 year commercial)",
+      "type": "skill"
+    },
+    {
+      "id": "react_native",
+      "label": "React Native (1 year commercial)",
+      "type": "skill"
+    },
+    {
+      "id": "jquery",
+      "label": "jQuery",
+      "type": "skill"
+    },
+    {
+      "id": "fastapi",
+      "label": "FastAPI",
+      "type": "skill"
+    },
+    {
+      "id": "aws_ec2",
+      "label": "AWS EC2",
+      "type": "skill"
+    },
+    {
+      "id": "aws_lambda",
+      "label": "AWS Lambda",
+      "type": "skill"
+    },
+    {
+      "id": "docker",
+      "label": "Docker",
+      "type": "skill"
+    },
+    {
+      "id": "mysql",
+      "label": "MySQL",
+      "type": "skill"
+    },
+    {
+      "id": "mariadb",
+      "label": "MariaDB",
+      "type": "skill"
+    },
+    {
+      "id": "postgresql",
+      "label": "PostgreSQL",
+      "type": "skill"
+    },
+    {
+      "id": "neo4j",
+      "label": "Neo4j",
+      "type": "skill"
+    },
+    {
+      "id": "mongodb",
+      "label": "MongoDB",
+      "type": "skill"
+    },
+    {
+      "id": "redis",
+      "label": "Redis",
+      "type": "skill"
+    },
+    {
+      "id": "git",
+      "label": "Git",
+      "type": "skill"
+    },
+    {
+      "id": "github_actions",
+      "label": "GitHub Actions",
+      "type": "skill"
+    },
+    {
+      "id": "bitbucket",
+      "label": "Bitbucket",
+      "type": "skill"
+    },
+    {
+      "id": "svn",
+      "label": "SVN",
+      "type": "skill"
+    },
+    {
+      "id": "bamboo",
+      "label": "Bamboo",
+      "type": "skill"
+    },
+    {
+      "id": "jira",
+      "label": "JIRA",
+      "type": "skill"
+    },
+    {
+      "id": "coolify",
+      "label": "Coolify",
+      "type": "skill"
+    },
+    {
+      "id": "selfhosting",
+      "label": "Self-hosting",
+      "type": "skill"
+    },
+    {
+      "id": "agile",
+      "label": "AGILE SCRUM",
+      "type": "skill"
+    },
+    {
+      "id": "cicd",
+      "label": "CI/CD",
+      "type": "skill"
+    }
+  ],
+  "edges": [
+    { "from": "root", "to": "languages" },
+    { "from": "root", "to": "frontend" },
+    { "from": "root", "to": "backend" },
+    { "from": "root", "to": "database" },
+    { "from": "root", "to": "devops" },
+    
+    { "from": "languages", "to": "python" },
+    { "from": "languages", "to": "csharp" },
+    { "from": "languages", "to": "java" },
+    { "from": "languages", "to": "typescript" },
+    { "from": "languages", "to": "matlab" },
+    { "from": "languages", "to": "rust" },
+    { "from": "languages", "to": "html" },
+    { "from": "languages", "to": "css" },
+    
+    { "from": "frontend", "to": "react" },
+    { "from": "frontend", "to": "react_native" },
+    { "from": "frontend", "to": "jquery" },
+    { "from": "frontend", "to": "html" },
+    { "from": "frontend", "to": "css" },
+    
+    { "from": "backend", "to": "fastapi" },
+    { "from": "backend", "to": "aws_ec2" },
+    { "from": "backend", "to": "aws_lambda" },
+    { "from": "backend", "to": "docker" },
+    
+    { "from": "database", "to": "mysql" },
+    { "from": "database", "to": "mariadb" },
+    { "from": "database", "to": "postgresql" },
+    { "from": "database", "to": "neo4j" },
+    { "from": "database", "to": "mongodb" },
+    { "from": "database", "to": "redis" },
+    
+    { "from": "devops", "to": "git" },
+    { "from": "devops", "to": "github_actions" },
+    { "from": "devops", "to": "bitbucket" },
+    { "from": "devops", "to": "svn" },
+    { "from": "devops", "to": "bamboo" },
+    { "from": "devops", "to": "jira" },
+    { "from": "devops", "to": "coolify" },
+    { "from": "devops", "to": "selfhosting" },
+    { "from": "devops", "to": "agile" },
+    { "from": "devops", "to": "cicd" }
+  ]
+}

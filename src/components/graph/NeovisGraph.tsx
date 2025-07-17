@@ -4,34 +4,60 @@ import React, { useEffect, useRef, useCallback, useState } from 'react';
 import { DataSet } from 'vis-data';
 import { Network } from 'vis-network/standalone';
 import 'vis-network/styles/vis-network.css';
+import { useSkillsGraph } from '@/hooks/useSkillsGraph';
+import type { GraphNode, GraphEdge } from '@/types/skills-graph';
 
-/* ─── Hard‑coded demo graph ───────────────────────────────────────────── */
-const NODES = new DataSet([
-  { id: 1, label: 'Web Dev', color: '#1fd38d', shape: 'box', font: { size: 24, bold: true } },
-  { id: 2, label: 'React',   color: '#61e7b9' },
-  { id: 3, label: 'CSS',     color: '#61e7b9' },
-]);
-const EDGES = new DataSet([
-  { from: 1, to: 2 },
-  { from: 1, to: 3 },
-]);
+/* ─── Font styles for different node types ───────────────────────────── */
+const NODE_STYLES = {
+  root: { shape: 'box', font: { size: 24, bold: true, color: '#ffffff' } },
+  category: { shape: 'box', font: { size: 18, bold: true, color: '#ffffff' } },
+  skill: { shape: 'ellipse', font: { size: 14, color: '#ffffff' } }
+};
 
 /* ─── Component ───────────────────────────────────────────────────────── */
-export default function VisFallback() {
+export default function SkillsGraph() {
   const containerRef = useRef<HTMLDivElement>(null);
   const networkRef   = useRef<Network | null>(null);
   const [scale, setScale] = useState(1);           // live zoom value
   const [isFull, setIsFull] = useState(false);     // fullscreen state
+  const { graph, loading } = useSkillsGraph();     // get dynamic graph data
 
-  /* 1. Initialise Vis network once ------------------------------------ */
+  /* 1. Initialise Vis network once ------------------------------------ */
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !graph) return;
+
+    // Convert graph data to vis-network format with styling
+    const visNodes = graph.nodes.map(node => ({
+      id: node.id,
+      label: node.label,
+      color: node.color,
+      ...(NODE_STYLES[node.type] || {})
+    }));
+
+    const visEdges = graph.edges.map((edge, idx) => ({
+      id: idx,
+      from: edge.from,
+      to: edge.to
+    }));
 
     const net = new Network(
       containerRef.current,
-      { nodes: NODES, edges: EDGES },
-      { physics: { stabilization: true }, interaction: { zoomView: false } } // we'll handle zoom
+      { nodes: visNodes, edges: visEdges },
+      { 
+        physics: { 
+          stabilization: true,
+          solver: 'forceAtlas2Based',
+          forceAtlas2Based: {
+            gravitationalConstant: -50,
+            centralGravity: 0.01,
+            springLength: 100,
+            springConstant: 0.08
+          }
+        }, 
+        interaction: { zoomView: false } // we'll handle zoom
+      }
     );
+    
     networkRef.current = net;
 
     // fit once stabilised
@@ -44,7 +70,7 @@ export default function VisFallback() {
     net.on('zoom', ({ scale }) => setScale(scale));
 
     return () => net.destroy();
-  }, []);
+  }, [graph]);
 
   /* 2. Helpers --------------------------------------------------------- */
   const zoomBy = useCallback((factor: number) => {
