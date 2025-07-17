@@ -205,7 +205,7 @@ export default function ChatWindow({
         height: `${size.height}px`,
         maxHeight: '85vh'
       }}
-      className={`fixed bottom-24 right-6 bg-[var(--color-surface)] rounded-[var(--radius-card)] shadow-card-lg flex flex-col z-40 ${isResizing ? 'select-none' : 'transition-opacity transition-transform duration-300'} ${
+      className={`fixed bottom-24 right-6 bg-[var(--color-surface)] rounded-[var(--radius-card)] shadow-card-lg flex flex-col z-[9999] ${isResizing ? 'select-none' : 'transition-opacity transition-transform duration-300'} ${
         isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10 pointer-events-none'
       }`}
       role="dialog"
