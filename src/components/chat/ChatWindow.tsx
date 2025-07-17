@@ -78,29 +78,27 @@ export default function ChatWindow({
     }
   }, [isOpen]);
   
-  // Define resize move handler
+  // Define resize move handler - optimized for immediate response
   const handleResizeMove = useCallback((e: globalThis.MouseEvent) => {
     if (!isResizingRef.current) return;
     
-    // Request animation frame for smoother resizing
-    requestAnimationFrame(() => {
-      const deltaX = e.clientX - startPositionRef.current.x;
-      const deltaY = e.clientY - startPositionRef.current.y;
-      
-      // Calculate new size based on resize type
-      let newWidth = sizeRef.current.width;
-      let newHeight = sizeRef.current.height;
-      
-      if (resizeTypeRef.current === 'left' || resizeTypeRef.current === 'corner') {
-        newWidth = Math.max(280, startSizeRef.current.width - deltaX); // Minimum width: 280px
-      }
-      
-      if (resizeTypeRef.current === 'top' || resizeTypeRef.current === 'corner') {
-        newHeight = Math.max(400, startSizeRef.current.height - deltaY); // Minimum height: 400px
-      }
-      
-      setSize({ width: newWidth, height: newHeight });
-    });
+    // Calculate directly without animation frame for immediate response
+    const deltaX = e.clientX - startPositionRef.current.x;
+    const deltaY = e.clientY - startPositionRef.current.y;
+    
+    // Calculate new size based on resize type
+    let newWidth = sizeRef.current.width;
+    let newHeight = sizeRef.current.height;
+    
+    if (resizeTypeRef.current === 'left' || resizeTypeRef.current === 'corner') {
+      newWidth = Math.max(280, startSizeRef.current.width - deltaX); // Minimum width: 280px
+    }
+    
+    if (resizeTypeRef.current === 'top' || resizeTypeRef.current === 'corner') {
+      newHeight = Math.max(400, startSizeRef.current.height - deltaY); // Minimum height: 400px
+    }
+    
+    setSize({ width: newWidth, height: newHeight });
   }, []);
   
   // Define resize end handler
@@ -114,7 +112,7 @@ export default function ChatWindow({
     document.body.style.cursor = '';
   }, []);
   
-  // Handle resize start
+  // Handle resize start - optimized for immediate response
   const handleResizeStart = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -122,6 +120,13 @@ export default function ChatWindow({
     // Get resize type from data attribute
     const type = (e.currentTarget.dataset.resizeType || 'corner') as 'left' | 'top' | 'corner';
     
+    // Update refs immediately for faster access in move handler
+    isResizingRef.current = true;
+    resizeTypeRef.current = type;
+    startPositionRef.current = { x: e.clientX, y: e.clientY };
+    startSizeRef.current = { width: sizeRef.current.width, height: sizeRef.current.height };
+    
+    // Also update state for component rendering
     setIsResizing(true);
     setResizeType(type);
     setStartPosition({ x: e.clientX, y: e.clientY });
@@ -200,7 +205,7 @@ export default function ChatWindow({
         height: `${size.height}px`,
         maxHeight: '85vh'
       }}
-      className={`fixed bottom-24 right-6 bg-[var(--color-surface)] rounded-[var(--radius-card)] shadow-card-lg flex flex-col transition-all duration-300 z-40 ${isResizing ? 'select-none' : ''} ${
+      className={`fixed bottom-24 right-6 bg-[var(--color-surface)] rounded-[var(--radius-card)] shadow-card-lg flex flex-col z-40 ${isResizing ? 'select-none' : 'transition-opacity transition-transform duration-300'} ${
         isOpen ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-10 pointer-events-none'
       }`}
       role="dialog"
