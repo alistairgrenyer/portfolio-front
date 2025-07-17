@@ -123,9 +123,9 @@ export default function SkillsGraph() {
     }
   }, []);
 
-  /* 3. UI -------------------------------------------------------------- */
+  /* 3. UI -------------------------------------------------------------- */
   return (
-    <div className="relative w-full h-[500px] border border-slate-700 rounded-lg">
+    <div className="relative w-full h-full min-h-[500px] md:min-h-[600px] lg:min-h-[700px] border border-slate-700 rounded-lg">
       {/* graph canvas */}
       <div ref={containerRef} className="w-full h-full" />
 

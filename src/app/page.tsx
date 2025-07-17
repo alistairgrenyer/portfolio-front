@@ -14,11 +14,11 @@ export default function Home() {
         <HomeSection />
       </section>
       
+      <ExperienceSection />
+
       <ProjectsSection />
       
       <SkillsSection />
-      
-      <ExperienceSection />
       
       <EducationSection />
       
