@@ -106,7 +106,7 @@ export default function ContactSection() {
                 </div>
                 
                 {/* Phone */}
-                {profile.basics.phone && (
+                {/* {profile.basics.phone && (
                   <div className="flex items-start">
                     <div className="bg-accent bg-opacity-10 dark:bg-accent-dark dark:bg-opacity-10 rounded-full p-3 mr-4">
                       <svg className="w-5 h-5 text-accent dark:text-accent-dark" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@ export default function ContactSection() {
                       </a>
                     </div>
                   </div>
-                )}
+                )} */}
                 
                 {/* Social Links */}
                 <div>

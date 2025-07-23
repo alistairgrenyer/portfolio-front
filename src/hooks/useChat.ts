@@ -3,7 +3,6 @@
 import { useState, useCallback } from 'react';
 import { Message, ChatRequest, ChatResponse } from '@/types/chat';
 import { v4 as uuidv4 } from 'uuid';
-import { navigateToSectionByQuery } from '@/utils/navigation';
 
 interface UseChatOptions {
   initialMessages?: Message[];
@@ -23,7 +22,7 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
       // Add more terms as needed
     ];
     
-    let lowerMessage = message.toLowerCase();
+    const lowerMessage = message.toLowerCase();
     const containsInappropriate = inappropriateTerms.some(term => 
       lowerMessage.includes(term)
     );

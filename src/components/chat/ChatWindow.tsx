@@ -21,7 +21,7 @@ export default function ChatWindow({
   isLoading,
   onSendMessage,
 }: ChatWindowProps) {
-  const [quickReplies, setQuickReplies] = useState<string[]>([
+  const [quickReplies] = useState<string[]>([
     'See projects',
     'Skills summary',
     'Contact info'
