@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import type { SkillsGraphData, GraphNode } from '../types/skills-graph';
-// Import skills graph data directly
-import graphData from '../../data/skills-graph.json';
+import { apiRequest } from '../config/api';
 
 // Color constants for the mint green theme
 const COLORS = {
@@ -21,30 +20,36 @@ export function useSkillsGraph() {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    try {
-      setLoading(true);
-      
-      // Apply colors based on node type
-      const coloredNodes = (graphData.nodes as GraphNode[]).map(node => ({
-        ...node,
-        color: node.type === 'root' 
-          ? COLORS.ROOT 
-          : node.type === 'category' 
-            ? COLORS.CATEGORY 
-            : COLORS.SKILL
-      }));
+    const fetchSkillsGraph = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const graphData = await apiRequest<SkillsGraphData>('skillsGraph');
+        
+        // Apply colors based on node type
+        const coloredNodes = (graphData.nodes as GraphNode[]).map(node => ({
+          ...node,
+          color: node.type === 'root' 
+            ? COLORS.ROOT 
+            : node.type === 'category' 
+              ? COLORS.CATEGORY 
+              : COLORS.SKILL
+        }));
 
-      // Create the processed graph data
-      setGraph({
-        nodes: coloredNodes,
-        edges: graphData.edges
-      });
-      
-      setLoading(false);
-    } catch (err) {
-      setError(err instanceof Error ? err : new Error('An unknown error occurred'));
-      setLoading(false);
-    }
+        // Create the processed graph data
+        setGraph({
+          nodes: coloredNodes,
+          edges: graphData.edges
+        });
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('An unknown error occurred'));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSkillsGraph();
   }, []);
 
   return {
