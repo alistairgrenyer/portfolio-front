@@ -26,8 +26,8 @@ export default function MessageList({ messages, loading }: MessageListProps) {
     >
       {messages.length === 0 && (
         <div className="flex justify-center items-center h-full">
-          <p className="text-[var(--color-primary)] opacity-70 text-center">
-            Welcome! Ask me anything about Alistair's work, projects, or skills.
+          <p className="text-gray-500 dark:text-gray-400 text-center">
+            Welcome! Ask me anything about Alistair&apos;s work, projects, or skills.
           </p>
         </div>
       )}
@@ -38,11 +38,11 @@ export default function MessageList({ messages, loading }: MessageListProps) {
       
       {loading && (
         <div className="flex justify-start mb-3">
-          <div className="bg-[var(--color-surface-muted)] rounded-[var(--radius-lg)] rounded-tl-none px-4 py-2 max-w-[80%]">
+          <div className="bg-gray-200 dark:bg-gray-700 rounded-2xl rounded-tl-none px-4 py-2 max-w-[80%]">
             <div className="flex space-x-2 items-center">
-              <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] opacity-70 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] opacity-70 animate-bounce" style={{ animationDelay: '250ms' }}></div>
-              <div className="w-2 h-2 rounded-full bg-[var(--color-accent)] opacity-70 animate-bounce" style={{ animationDelay: '500ms' }}></div>
+              <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+              <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style={{ animationDelay: '250ms' }}></div>
+              <div className="w-2 h-2 rounded-full bg-gray-400 dark:bg-gray-500 animate-bounce" style={{ animationDelay: '500ms' }}></div>
             </div>
           </div>
         </div>

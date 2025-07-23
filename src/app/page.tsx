@@ -18,11 +18,31 @@ export default function Home() {
 
       <ProjectsSection />
       
-      <SkillsSection />
+      {/* Projects Section */}
+      <section id="projects" className="py-16">
+        <div className="container mx-auto px-4">
+          {/* <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2> */}
+          <ProjectsSection />
+        </div>
+      </section>
       
       <EducationSection />
       
-      <ContactSection />
+      {/* Education Section */}
+      <section id="education" className="py-16 bg-gray-50 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          {/* <h2 className="text-3xl font-bold mb-8 text-center">Education & Certifications</h2> */}
+          <EducationSection />
+        </div>
+      </section>
+      
+      {/* Contact Section */}
+      <section id="contact" className="py-16">
+        <div className="container mx-auto px-4">
+          {/* <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2> */}
+          <ContactSection />
+        </div>
+      </section>
     </main>
   );
 }

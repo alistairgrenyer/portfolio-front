@@ -1,5 +1,3 @@
-/* ─ globals.css ───────────────────────────────────────────── */
-/* 1. Load Tailwind (theme‑layer, base reset, utilities) */
 @import "tailwindcss";
 
 /* 2. Design tokens → generate utilities */
@@ -183,56 +181,22 @@
           shadow-xs hover:shadow-sm;
 }
 
-@utility btn-outline {
-  @apply inline-flex items-center justify-center gap-2
-          px-4 py-2 rounded-md font-semibold leading-tight
-          transition-all duration-150
-          border border-primary text-primary
-          hover:bg-primary/10 shadow-xs hover:shadow-sm;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
-/* Wide container helper */
-@utility container-wide {
-  max-width: var(--container-2xl);
-  margin-inline: auto;
-  padding-inline: 1rem;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
-/* Float animation */
-@keyframes float {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-4%); }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
-@utility animate-float { animation: float 6s ease-in-out infinite alternate; }
-
-/* Avatar size shortcuts */
-@utility size-avatar-sm { width: var(--size-avatar-sm); height: var(--size-avatar-sm); }
-@utility size-avatar-md { width: var(--size-avatar-md); height: var(--size-avatar-md); }
-@utility size-avatar-lg { width: var(--size-avatar-lg); height: var(--size-avatar-lg); }
-
-/* ---- Avatar size utilities ---- */
-@utility size-avatar-sm {
-  width: var(--size-avatar-sm);
-  height: var(--size-avatar-sm);
-}
-@utility size-avatar-md {
-  width: var(--size-avatar-md);
-  height: var(--size-avatar-md);
-}
-@utility size-avatar-lg {
-  width: var(--size-avatar-lg);
-  height: var(--size-avatar-lg);
-}
-
-/* Custom AOS fade-up override */
-.aos-init[data-aos="fade-up"] {
-  opacity: 0;
-  transform: translate3d(0, 120px, 0) !important;
-}
-
-.aos-animate[data-aos="fade-up"] {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) !important;
-}
-
-/* End globals.css */
