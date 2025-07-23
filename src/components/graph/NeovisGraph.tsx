@@ -1,11 +1,9 @@
 'use client';
 
 import React, { useEffect, useRef, useCallback, useState } from 'react';
-import { DataSet } from 'vis-data';
 import { Network } from 'vis-network/standalone';
 import 'vis-network/styles/vis-network.css';
 import { useSkillsGraph } from '@/hooks/useSkillsGraph';
-import type { GraphNode, GraphEdge } from '@/types/skills-graph';
 
 /* ─── Font styles for different node types ───────────────────────────── */
 const NODE_STYLES = {
@@ -36,7 +34,7 @@ export default function SkillsGraph() {
   const networkRef   = useRef<Network | null>(null);
   const [scale, setScale] = useState(1);           // live zoom value
   const [isFull, setIsFull] = useState(false);     // fullscreen state
-  const { graph, loading } = useSkillsGraph();     // get dynamic graph data
+  const { graph } = useSkillsGraph();     // get dynamic graph data
 
   /* 1. Initialise Vis network once ------------------------------------ */
   useEffect(() => {

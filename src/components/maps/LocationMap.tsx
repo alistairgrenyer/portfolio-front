@@ -32,11 +32,11 @@ interface GeoJSONFeature {
   type: string;
   properties: {
     location?: string;
-    [key: string]: any;
+    [key: string]: unknown;
   };
   geometry: {
     type: string; // Can be 'Point' or 'Polygon' or 'MultiPolygon'
-    coordinates: any[]; // For Point: [lng, lat], for Polygon: [[[lng, lat], ...]], for MultiPolygon: [[[[lng, lat], ...]]]
+    coordinates: unknown; // GeoJSON coordinates can be various nested array structures
   };
   id: number;
 }
@@ -176,7 +176,7 @@ export const LocationMap = ({ locations, onPinClick }: LocationMapProps) => {
       cityPoints
     });
     
-  }, []);
+  }, []); // Empty dependency array since this should only run once on mount
   
   // No need for a separate function - path is pre-calculated in transformedData
   const ukMapPath = transformedData.ukPath;

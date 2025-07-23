@@ -26,7 +26,7 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
       // Add more terms as needed
     ];
     
-    let lowerMessage = message.toLowerCase();
+    const lowerMessage = message.toLowerCase();
     const containsInappropriate = inappropriateTerms.some(term => 
       lowerMessage.includes(term)
     );
@@ -163,7 +163,7 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
     } finally {
       setIsLoading(false);
     }
-  }, [messages, onNavigate]);
+  }, [messages, onNavigate, sessionId]);
   
   const clearMessages = useCallback(() => {
     setMessages([]);

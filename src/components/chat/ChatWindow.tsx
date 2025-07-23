@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback, MutableRefObject, MouseEvent } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Message } from '@/types/chat';
 import MessageList from './MessageList';
 import ChatInput from './ChatInput';
@@ -21,7 +21,7 @@ export default function ChatWindow({
   isLoading,
   onSendMessage,
 }: ChatWindowProps) {
-  const [quickReplies, setQuickReplies] = useState<string[]>([
+  const [quickReplies] = useState<string[]>([
     'See projects',
     'Skills summary',
     'Contact info'
@@ -110,7 +110,7 @@ export default function ChatWindow({
     document.removeEventListener('mousemove', handleResizeMove as unknown as EventListener);
     document.removeEventListener('mouseup', handleResizeEnd as unknown as EventListener);
     document.body.style.cursor = '';
-  }, []);
+  }, [handleResizeMove]);
   
   // Handle resize start - optimized for immediate response
   const handleResizeStart = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -247,7 +247,7 @@ export default function ChatWindow({
       {/* Header */}
       <div className="p-4 border-b border-[var(--color-border)] flex justify-between items-center">
         <h2 id="chat-title" className="text-lg font-semibold text-[var(--color-primary)]">
-          Alistair's Assistant
+          Alistair&apos;s Assistant
         </h2>
         <button 
           ref={closeButtonRef}
