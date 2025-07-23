@@ -17,6 +17,11 @@
   --color-primary-light: hsl(0 0%  95%);
   --color-primary-dark:     hsl(0 0%  85%);
 
+  /* Text colors */
+  --color-text-primary:   hsl(0 0% 95%);   /* light grey for main text */
+  --color-text-secondary: hsl(0 0% 75%);   /* medium grey for secondary text */
+  --color-text-muted:     hsl(0 0% 60%);   /* darker grey for muted text */
+
   --color-accent:         hsl(155 70% 50%); /* #1fd38d */
   --color-accent-light:   hsl(155 70% 70%); /* #61e7b9 */
   --color-accent-dark:    hsl(155 80% 38%); /* #189d6d */
@@ -127,6 +132,11 @@
     --color-primary:  hsl(0 0% 100%);
     --color-primary-light:hsl(0 0% 95%);
     --color-primary-dark: hsl(0 0% 85%);
+
+    /* Text colors for dark mode */
+    --color-text-primary:   hsl(0 0% 90%);   /* slightly brighter for dark mode */
+    --color-text-secondary: hsl(0 0% 70%);   /* medium grey for secondary text */
+    --color-text-muted:     hsl(0 0% 55%);   /* muted grey for dark mode */
 
     --color-accent:        hsl(155 70% 60%);
     --color-accent-light:  hsl(155 70% 75%);
