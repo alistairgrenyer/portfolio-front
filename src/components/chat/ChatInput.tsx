@@ -68,7 +68,7 @@ const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>((
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Ask me about Alistair's work..."
+            placeholder="Type your message..."
             className="w-full resize-none rounded-[var(--radius-md)] border border-[var(--color-border)] bg-[var(--color-bg)] px-4 py-2 pr-12 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] text-[var(--color-primary)] max-h-[120px] min-h-[42px]"
             rows={1}
             disabled={disabled}

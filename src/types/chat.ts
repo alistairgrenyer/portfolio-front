@@ -7,12 +7,33 @@ export interface Message {
   timestamp: number;
 }
 
-export interface ChatRequest {
-  userMessage: string;
-  thread: Message[];
+// API conversation history item (matches API schema)
+export interface ConversationHistoryItem {
+  role: string;
+  content: string;
+  timestamp: string;
 }
 
+// API source item
+export interface Source {
+  title: string;
+  snippet: string;
+  page: number;
+  url: string;
+}
+
+// API request schema
+export interface ChatRequest {
+  message: string;
+  conversation_history: ConversationHistoryItem[];
+  session_id: string;
+}
+
+// API response schema
 export interface ChatResponse {
-  assistantMessage: string;
-  navTarget?: string; // section id
+  answer: string;
+  sources: Source[];
+  blocked: boolean;
+  reason: string;
+  conversation_id: string;
 }

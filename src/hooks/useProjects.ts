@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Project, ProjectsData } from '../types/project';
-// Import projects data directly
-import projectsData from '../../data/projects.json';
+import { apiRequest } from '../config/api';
 
 export function useProjects() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -10,17 +9,22 @@ export function useProjects() {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    try {
-      setLoading(true);
-      // Using directly imported JSON data
-      const data = projectsData as ProjectsData;
-      setProjects(data.projects);
-      setFeaturedProjects(data.projects.filter(project => project.featured));
-      setLoading(false);
-    } catch (err) {
-      setError(err instanceof Error ? err : new Error('An unknown error occurred'));
-      setLoading(false);
-    }
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const data = await apiRequest<ProjectsData>('projects');
+        setProjects(data.projects);
+        setFeaturedProjects(data.projects.filter(project => project.featured));
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('An unknown error occurred'));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
   }, []);
 
   return {

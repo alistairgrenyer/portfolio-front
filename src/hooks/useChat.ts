@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Message, ChatRequest, ChatResponse } from '@/types/chat';
+import { Message, ChatRequest, ChatResponse, ConversationHistoryItem } from '@/types/chat';
 import { v4 as uuidv4 } from 'uuid';
-import { navigateToSectionByQuery } from '@/utils/navigation';
+import { getSectionIdFromQuery } from '@/utils/navigation';
+import { getApiUrl } from '@/config/api';
 
 interface UseChatOptions {
   initialMessages?: Message[];
@@ -14,6 +15,8 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [sessionId] = useState<string>(() => uuidv4()); // Generate session ID once per hook instance
+  const [conversationId, setConversationId] = useState<string | null>(null);
 
   // Filter inappropriate content
   const filterMessage = (message: string): { isAllowed: boolean; message: string } => {
@@ -72,14 +75,22 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
         return;
       }
       
+      // Convert messages to API conversation history format
+      const conversationHistory: ConversationHistoryItem[] = messages.concat(userMessage).map(msg => ({
+        role: msg.role,
+        content: msg.content,
+        timestamp: new Date(msg.timestamp).toISOString(),
+      }));
+
       // Prepare request
       const request: ChatRequest = {
-        userMessage: userInput,
-        thread: messages.concat(userMessage),
+        message: userInput,
+        conversation_history: conversationHistory,
+        session_id: sessionId,
       };
       
       // Send to API
-      const response = await fetch('/api/chat', {
+      const response = await fetch(getApiUrl('chat'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -93,20 +104,48 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
       
       const data: ChatResponse = await response.json();
       
-      // Create bot response message
+      // Update conversation ID if provided
+      if (data.conversation_id) {
+        setConversationId(data.conversation_id);
+      }
+      
+      // Handle blocked responses
+      if (data.blocked) {
+        const blockedResponse: Message = {
+          id: uuidv4(),
+          role: 'assistant',
+          content: data.reason || 'This message was blocked by content filters.',
+          timestamp: Date.now(),
+        };
+        setMessages((prev) => [...prev, blockedResponse]);
+        return;
+      }
+      
+      // Create bot response message with sources if available
+      let responseContent = data.answer;
+      if (data.sources && data.sources.length > 0) {
+        responseContent += '\n\n**Sources:**\n' + 
+          data.sources.map((source, index) => 
+            `${index + 1}. [${source.title}](${source.url}) - ${source.snippet}`
+          ).join('\n');
+      }
+      
       const botResponse: Message = {
         id: uuidv4(),
         role: 'assistant',
-        content: data.assistantMessage,
+        content: responseContent,
         timestamp: Date.now(),
       };
       
       // Add bot response to the chat
       setMessages((prev) => [...prev, botResponse]);
       
-      // Handle navigation if specified
-      if (data.navTarget && onNavigate) {
-        onNavigate(data.navTarget);
+      // Handle navigation based on content (since navTarget is removed from API)
+      if (onNavigate) {
+        const sectionId = getSectionIdFromQuery(data.answer);
+        if (sectionId) {
+          onNavigate(sectionId);
+        }
       }
     } catch (err) {
       console.error('Error sending message:', err);
@@ -137,5 +176,7 @@ export default function useChat({ initialMessages = [], onNavigate }: UseChatOpt
     error,
     sendMessage,
     clearMessages,
+    sessionId,
+    conversationId,
   };
 }

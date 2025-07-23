@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ProfileData } from '../types/profile';
-// Import profile data directly
-import profileData from '../../data/profile.json';
+import { apiRequest } from '../config/api';
 
 export function useProfile() {
   const [profile, setProfile] = useState<ProfileData | null>(null);
@@ -9,15 +8,21 @@ export function useProfile() {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    try {
-      setLoading(true);
-      // Using directly imported JSON data
-      setProfile(profileData as ProfileData);
-      setLoading(false);
-    } catch (err) {
-      setError(err instanceof Error ? err : new Error('An unknown error occurred'));
-      setLoading(false);
-    }
+    const fetchProfile = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const data = await apiRequest<ProfileData>('profile');
+        setProfile(data);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('An unknown error occurred'));
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProfile();
   }, []);
 
   return {
