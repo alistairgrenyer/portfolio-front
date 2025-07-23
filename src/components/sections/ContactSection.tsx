@@ -56,36 +56,36 @@ export default function ContactSection() {
   };
   
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Get In Touch</h2>
+    <section id="contact" data-aos="fade-up" className="py-20 bg-surface dark:bg-surface-dark">
+      <div className="container-tight">
+        <h2 className="text-3xl md:text-4xl font-heading font-semibold mb-12 text-center text-primary dark:text-primary-dark">Get In Touch</h2>
         
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Contact Information</h3>
+            <h3 className="text-2xl font-heading font-semibold mb-6 text-primary dark:text-primary-dark">Contact Information</h3>
             
             {loading ? (
               <div className="animate-pulse space-y-6">
-                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
-                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-1/2 mb-4"></div>
-                <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-2/3"></div>
+                <div className="h-8 bg-surface dark:bg-surface-dark rounded w-3/4 mb-4"></div>
+                <div className="h-8 bg-surface dark:bg-surface-dark rounded w-1/2 mb-4"></div>
+                <div className="h-8 bg-surface dark:bg-surface-dark rounded w-2/3"></div>
               </div>
             ) : profile?.basics ? (
               <div className="space-y-6">
                 {/* Email */}
                 <div className="flex items-start">
-                  <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-3 mr-4">
-                    <svg className="w-5 h-5 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <div className="bg-accent bg-opacity-10 dark:bg-accent-dark dark:bg-opacity-10 rounded-full p-3 mr-4">
+                    <svg className="w-5 h-5 text-accent dark:text-accent-dark" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">Email</h4>
+                    <h4 className="text-lg font-medium text-primary dark:text-primary-dark mb-1">Email</h4>
                     <a 
                       href={`mailto:${profile.basics.email}`} 
-                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-accent dark:text-accent-dark hover:underline"
                     >
                       {profile.basics.email}
                     </a>
@@ -94,30 +94,30 @@ export default function ContactSection() {
                 
                 {/* Location */}
                 <div className="flex items-start">
-                  <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-3 mr-4">
-                    <svg className="w-5 h-5 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <div className="bg-accent bg-opacity-10 dark:bg-accent-dark dark:bg-opacity-10 rounded-full p-3 mr-4">
+                    <svg className="w-5 h-5 text-accent dark:text-accent-dark" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"></path>
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">Location</h4>
-                    <p className="text-gray-600 dark:text-gray-400">{profile.basics.location}</p>
+                    <h4 className="text-lg font-medium text-primary dark:text-primary-dark mb-1">Location</h4>
+                    <p className="text-primary dark:text-primary-dark opacity-80">{profile.basics.location}</p>
                   </div>
                 </div>
                 
                 {/* Phone */}
                 {/* {profile.basics.phone && (
                   <div className="flex items-start">
-                    <div className="bg-blue-100 dark:bg-blue-900 rounded-full p-3 mr-4">
-                      <svg className="w-5 h-5 text-blue-600 dark:text-blue-300" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <div className="bg-accent bg-opacity-10 dark:bg-accent-dark dark:bg-opacity-10 rounded-full p-3 mr-4">
+                      <svg className="w-5 h-5 text-accent dark:text-accent-dark" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                       </svg>
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-1">Phone</h4>
+                      <h4 className="text-lg font-medium text-primary dark:text-primary-dark mb-1">Phone</h4>
                       <a 
                         href={`tel:${profile.basics.phone}`} 
-                        className="text-blue-600 dark:text-blue-400 hover:underline"
+                        className="text-accent dark:text-accent-dark hover:underline"
                       >
                         {profile.basics.phone}
                       </a>
@@ -127,7 +127,7 @@ export default function ContactSection() {
                 
                 {/* Social Links */}
                 <div>
-                  <h4 className="text-lg font-medium text-gray-900 dark:text-white mb-3">Connect with Me</h4>
+                  <h4 className="text-lg font-medium text-primary dark:text-primary-dark mb-3">Connect with Me</h4>
                   <div className="flex space-x-4">
                     {profile.basics.socialLinks && profile.basics.socialLinks.length > 0 && 
                       profile.basics.socialLinks.map((social, index) => (
@@ -136,7 +136,7 @@ export default function ContactSection() {
                           href={social.url} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
+                          className="text-accent hover:text-accent/80 dark:text-accent-dark dark:hover:text-accent-dark/80"
                           aria-label={`${social.name} Profile`}
                         >
                           {social.name === 'LinkedIn' && (
@@ -167,80 +167,69 @@ export default function ContactSection() {
           
           {/* Contact Form */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Send a Message</h3>
+            <h3 className="text-2xl font-heading font-semibold mb-6 text-primary dark:text-primary-dark">Send a Message</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Name
-                </label>
+                <label htmlFor="name" className="block text-sm font-medium text-primary dark:text-primary-dark mb-1">Name</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   value={formState.name}
                   onChange={handleChange}
+                  className="w-full px-4 py-2 border border-surface dark:border-surface-dark rounded-md shadow-sm focus:ring-accent focus:border-accent dark:focus:ring-accent-dark dark:focus:border-accent-dark bg-background dark:bg-background-dark text-primary dark:text-primary-dark"
                   placeholder="Your name"
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
-                  disabled={formStatus === 'submitting'}
                 />
               </div>
               
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Email
-                </label>
+                <label htmlFor="email" className="block text-sm font-medium text-primary dark:text-primary-dark mb-1">Email</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
                   value={formState.email}
                   onChange={handleChange}
+                  className="w-full px-4 py-2 border border-surface dark:border-surface-dark rounded-md shadow-sm focus:ring-accent focus:border-accent dark:focus:ring-accent-dark dark:focus:border-accent-dark bg-background dark:bg-background-dark text-primary dark:text-primary-dark"
                   placeholder="Your email"
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
-                  disabled={formStatus === 'submitting'}
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                  Message
-                </label>
+                <label htmlFor="message" className="block text-sm font-medium text-primary dark:text-primary-dark mb-1">Message</label>
                 <textarea
                   id="message"
                   name="message"
+                  rows={4}
                   value={formState.message}
                   onChange={handleChange}
+                  className="w-full px-4 py-2 border border-surface dark:border-surface-dark rounded-md shadow-sm focus:ring-accent focus:border-accent dark:focus:ring-accent-dark dark:focus:border-accent-dark bg-background dark:bg-background-dark text-primary dark:text-primary-dark"
                   placeholder="Your message"
-                  rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:text-white"
-                  disabled={formStatus === 'submitting'}
-                />
+                ></textarea>
               </div>
               
               {errorMessage && (
-                <div className="text-red-600 dark:text-red-400 text-sm">
-                  {errorMessage}
-                </div>
+                <div className="text-highlight dark:text-highlight-dark text-sm">{errorMessage}</div>
               )}
               
-              <button
-                type="submit"
-                disabled={formStatus === 'submitting' || formStatus === 'success'}
-                className={`w-full py-3 px-6 rounded-md text-white font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${
-                  formStatus === 'submitting'
-                    ? 'bg-blue-400 cursor-not-allowed'
-                    : formStatus === 'success'
-                    ? 'bg-green-600 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700'
-                }`}
-              >
-                {formStatus === 'submitting'
-                  ? 'Sending...'
-                  : formStatus === 'success'
-                  ? 'Message Sent!'
-                  : 'Send Message'}
-              </button>
+              <div>
+                <button
+                  type="submit"
+                  disabled={formStatus === 'submitting'}
+                  className={`w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white font-medium ${formStatus === 'submitting' ? 'bg-accent/70 cursor-not-allowed' : 'bg-accent hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent'} dark:bg-accent-dark dark:hover:bg-accent-dark/90`}
+                >
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
+              
+              {formStatus === 'success' && (
+                <div className="text-accent dark:text-accent-dark text-center">Message sent successfully!</div>
+              )}
+              
+              {formStatus === 'error' && (
+                <div className="text-highlight dark:text-highlight-dark text-center">Failed to send message. Please try again.</div>
+              )}
             </form>
           </div>
         </div>

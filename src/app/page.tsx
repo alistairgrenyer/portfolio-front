@@ -14,53 +14,15 @@ export default function Home() {
         <HomeSection />
       </section>
       
-      {/* About Section */}
-      <section id="about" className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2> */}
-          <AboutSection />
-        </div>
-      </section>
+      <ProjectsSection />
       
-      {/* Projects Section */}
-      <section id="projects" className="py-16">
-        <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">My Projects</h2> */}
-          <ProjectsSection />
-        </div>
-      </section>
+      <SkillsSection />
       
-      {/* Skills Section */}
-      <section id="skills" className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">Skills</h2> */}
-          <SkillsSection />
-        </div>
-      </section>
+      <ExperienceSection />
       
-      {/* Experience Section */}
-      <section id="experience" className="py-16">
-        <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">Experience</h2> */}
-          <ExperienceSection />
-        </div>
-      </section>
+      <EducationSection />
       
-      {/* Education Section */}
-      <section id="education" className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">Education & Certifications</h2> */}
-          <EducationSection />
-        </div>
-      </section>
-      
-      {/* Contact Section */}
-      <section id="contact" className="py-16">
-        <div className="container mx-auto px-4">
-          {/* <h2 className="text-3xl font-bold mb-8 text-center">Contact Me</h2> */}
-          <ContactSection />
-        </div>
-      </section>
+      <ContactSection />
     </main>
   );
 }

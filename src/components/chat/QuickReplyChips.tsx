@@ -14,7 +14,7 @@ export default function QuickReplyChips({ suggestions, onSelectSuggestion }: Qui
         <button
           key={index}
           onClick={() => onSelectSuggestion(suggestion)}
-          className="px-3 py-1 bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-full text-sm text-gray-700 dark:text-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="px-3 py-1 bg-[var(--color-surface)] hover:bg-opacity-80 rounded-[var(--radius-full)] text-sm text-[var(--color-primary)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
         >
           {suggestion}
         </button>

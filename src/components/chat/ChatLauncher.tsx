@@ -24,7 +24,7 @@ export default function ChatLauncher({ isOpen, onClick }: ChatLauncherProps) {
   return (
     <button
       onClick={onClick}
-      className={`fixed bottom-6 right-6 w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg transition-all duration-300 z-40 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+      className={`fixed bottom-6 right-6 w-14 h-14 rounded-[var(--radius-full)] bg-[var(--color-accent)] hover:bg-opacity-80 text-[var(--color-bg)] flex items-center justify-center shadow-card-lg transition-all duration-300 z-40 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 ${
         isOpen ? 'rotate-90' : 'rotate-0'
       }`}
       aria-label={isOpen ? "Close chat" : "Open chat"}
