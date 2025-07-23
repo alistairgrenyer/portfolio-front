@@ -133,11 +133,6 @@
     --color-primary-light:hsl(0 0% 95%);
     --color-primary-dark: hsl(0 0% 85%);
 
-    /* Text colors for dark mode */
-    --color-text-primary:   hsl(0 0% 90%);   /* slightly brighter for dark mode */
-    --color-text-secondary: hsl(0 0% 70%);   /* medium grey for secondary text */
-    --color-text-muted:     hsl(0 0% 55%);   /* muted grey for dark mode */
-
     --color-accent:        hsl(155 70% 60%);
     --color-accent-light:  hsl(155 70% 75%);
     --color-accent-dark:   hsl(155 70% 50%);
