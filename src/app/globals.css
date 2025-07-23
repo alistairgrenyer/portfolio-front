@@ -1,228 +1,26 @@
-/* ─ globals.css ───────────────────────────────────────────── */
-/* 1. Load Tailwind (theme‑layer, base reset, utilities) */
 @import "tailwindcss";
 
-/* 2. Design tokens → generate utilities */
-@theme {
-  /* ───────────────── Colour palette (Slate Greys × Mint Greens) ──────────────── */
-
-  /* Slate‑grey surfaces & borders */
-  --color-bg:            hsl(210 10%  8%);   /* #0d1118 */
-  --color-surface:       hsl(210 10% 14%);   /* #1a222c */
-  --color-surface-muted: hsl(210 10% 20%);   /* #2c3645 */
-  --color-border:        hsl(210 10% 30%);
-
-  /* Copy colours — now whites / greys */
-  --color-primary:   hsl(0 0% 100%);  /* pure white */
-  --color-primary-light: hsl(0 0%  95%);
-  --color-primary-dark:     hsl(0 0%  85%);
-
-  --color-accent:         hsl(155 70% 50%); /* #1fd38d */
-  --color-accent-light:   hsl(155 70% 70%); /* #61e7b9 */
-  --color-accent-dark:    hsl(155 80% 38%); /* #189d6d */
-
-  /* Highlights & misc */
-  --color-highlight:      hsl(0 0% 100% / .08);
-  --color-code-bg:        hsl(220  5% 18%);
-
-  /* Semi‑transparent overlays */
-  --color-overlay-800:  hsl(210 10% 8% / .8);
-  --color-overlay-600:  hsl(210 10% 8% / .6);
-  --color-overlay-400:  hsl(210 10% 8% / .4);
-
-  /* ─────────── Gradients (kept within mint & slate families) ─────────── */
-  --gradient-brand:  linear-gradient(135deg, hsl(160 70% 50%) 0%, hsl(160 70% 35%) 100%);
-  --gradient-ocean:  linear-gradient(90deg,  hsl(160 70% 60%) 0%, hsl(160 70% 40%) 100%);
-  --gradient-sunset: linear-gradient(45deg,  hsl(160 100% 88%) 0%, hsl(160 70% 65%) 100%);
-  --gradient-steel:  linear-gradient(90deg, hsl(210 10% 5%) 0%, hsl(210 10% 14%) 100%);
-
-  /* Spacing extensions */
-  --spacing-72: 18rem; /* 288px */
-  --spacing-80: 20rem; /* 320px */
-  --spacing-96: 24rem; /* 384px */
-
-  /* Container widths */
-  --container-xs: 18rem;
-  --container-sm: 24rem;
-  --container-md: 40rem;
-  --container-lg: 64rem;
-  --container-xl: 80rem;
-  --container-2xl: 96rem;
-  --container-3xl: 120rem;
-
-  /* Custom breakpoints */
-  --breakpoint-xs: 30rem;  /* 480px */
-  --breakpoint-3xl: 120rem;
-
-  /* Radii */
-  --radius-sm:   .25rem;
-  --radius-md:   .5rem;
-  --radius-lg:   1rem;
-  --radius-full: 9999px;
-  --radius-card: 1rem;
-
-  /* Shadows */
-  --shadow-xs:   0 1px 2px  hsl(210 8% 5% /.30);
-  --shadow-sm:   0 2px 4px  hsl(210 8% 5% /.30);
-  --shadow-md:   0 4px 8px  hsl(210 8% 5% /.35);
-  --shadow-lg:   0 8px 16px hsl(210 8% 5% /.40);
-  --shadow-glow: 0 0 10px   hsl(160 70% 50% /.60);
-
-  /* Typography scale */
-  --font-size-display: clamp(2.75rem, 1.2rem + 5vw, 4rem)/1.1;
-  --font-size-h1:      2.25rem/1.2;
-  --font-size-h2:      1.875rem/1.25;
-  --font-size-h3:      1.5rem/1.3;
-  --font-size-h4:      1.25rem/1.4;
-  --font-size-body:    1rem/1.6;
-  --font-size-caption: .875rem/1.6;
-
-  /* Avatar sizes */
-  --size-avatar-sm: 2rem;
-  --size-avatar-md: 3rem;
-  --size-avatar-lg: 4rem;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-/* 3. Global styling + run‑time dark‑mode overrides */
-@layer base {
-  /* Base reset & typography */
-  html {
-    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    font-size: 16px;
-    background-color: var(--color-bg);
-    color: var(--color-text-primary);
-  }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    letter-spacing: -.015em;
-    color: var(--color-text-primary);
-  }
-
-  h1 { font: var(--font-size-h1); }
-  h2 { font: var(--font-size-h2); }
-  h3 { font: var(--font-size-h3); }
-  h4 { font: var(--font-size-h4); }
-  p  { font: var(--font-size-body); }
-
-  code, pre, kbd {
-    font-family: 'Fira Code', 'Source Code Pro', ui-monospace, monospace;
-    background-color: var(--color-code-bg);
-    padding: .15em .3em;
-    border-radius: var(--radius-sm);
-  }
-
-  /* Dark‑mode overrides */
-  [data-theme="dark"] {
-    color-scheme: dark;
-
-    /* Darker slate surfaces */
-    --color-bg:            hsl(210 10% 6%);
-    --color-surface:       hsl(210 10% 10%);
-    --color-surface-muted: hsl(210 10% 14%);
-    --color-border:        hsl(210 10% 25%);
-
-    /* Copy colours */
-    --color-primary:  hsl(0 0% 100%);
-    --color-primary-light:hsl(0 0% 95%);
-    --color-primary-dark: hsl(0 0% 85%);
-
-    --color-accent:        hsl(155 70% 60%);
-    --color-accent-light:  hsl(155 70% 75%);
-    --color-accent-dark:   hsl(155 70% 50%);
-
-    --color-highlight:     hsl(0 0% 100% / .10);
-    --color-code-bg:       hsl(220 5% 12%);
-
-    --shadow-xs:   0 1px 2px  hsl(210 8% 5% /.40);
-    --shadow-sm:   0 2px 4px  hsl(210 8% 5% /.40);
-    --shadow-md:   0 4px 8px  hsl(210 8% 5% /.45);
-    --shadow-lg:   0 8px 16px hsl(210 8% 5% /.50);
-    --shadow-glow: 0 0 12px   hsl(160 70% 55% /.70);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-/* 4. One‑off utilities & components */
-
-/* Gradient helpers */
-@utility bg-gradient-brand  { background-image: var(--gradient-brand); }
-@utility bg-gradient-ocean  { background-image: var(--gradient-ocean); }
-@utility bg-gradient-sunset { background-image: var(--gradient-sunset); }
-@utility bg-gradient-steel  { background-image: var(--gradient-steel); }
-
-/* Card shadows */
-@utility shadow-card    { box-shadow: var(--shadow-md); }
-@utility shadow-card-lg { box-shadow: var(--shadow-lg); }
-
-/* Frosted glass effect */
-@utility glass {
-  background: linear-gradient(135deg,
-               hsl(0 0% 100% / .05),
-               hsl(0 0% 100% / .02));
-  backdrop-filter: blur(10px);
-  border: 1px solid hsl(0 0% 100% / .08);
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Button components */
-@utility btn {
-  @apply inline-flex items-center justify-center gap-2
-          px-4 py-2 rounded-md font-semibold leading-tight
-          transition-all duration-150
-          bg-primary text-white hover:bg-primary-light
-          shadow-xs hover:shadow-sm;
-}
-
-@utility btn-outline {
-  @apply inline-flex items-center justify-center gap-2
-          px-4 py-2 rounded-md font-semibold leading-tight
-          transition-all duration-150
-          border border-primary text-primary
-          hover:bg-primary/10 shadow-xs hover:shadow-sm;
-}
-
-/* Wide container helper */
-@utility container-wide {
-  max-width: var(--container-2xl);
-  margin-inline: auto;
-  padding-inline: 1rem;
-}
-
-/* Float animation */
-@keyframes float {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-4%); }
-}
-@utility animate-float { animation: float 6s ease-in-out infinite alternate; }
-
-/* Avatar size shortcuts */
-@utility size-avatar-sm { width: var(--size-avatar-sm); height: var(--size-avatar-sm); }
-@utility size-avatar-md { width: var(--size-avatar-md); height: var(--size-avatar-md); }
-@utility size-avatar-lg { width: var(--size-avatar-lg); height: var(--size-avatar-lg); }
-
-/* ---- Avatar size utilities ---- */
-@utility size-avatar-sm {
-  width: var(--size-avatar-sm);
-  height: var(--size-avatar-sm);
-}
-@utility size-avatar-md {
-  width: var(--size-avatar-md);
-  height: var(--size-avatar-md);
-}
-@utility size-avatar-lg {
-  width: var(--size-avatar-lg);
-  height: var(--size-avatar-lg);
-}
-
-/* Custom AOS fade-up override */
-.aos-init[data-aos="fade-up"] {
-  opacity: 0;
-  transform: translate3d(0, 120px, 0) !important;
-}
-
-.aos-animate[data-aos="fade-up"] {
-  opacity: 1;
-  transform: translate3d(0, 0, 0) !important;
-}
-
-/* End globals.css */
